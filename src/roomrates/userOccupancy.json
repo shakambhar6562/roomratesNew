@@ -1,0 +1,14 @@
+[
+  {
+    "numOfAdults": 2,
+    "childAges": []
+  },
+  {
+    "numOfAdults": 2,
+    "childAges": [3, 8]
+  },
+  {
+    "numOfAdults": 4,
+    "childAges": []
+  }
+]
