@@ -1,8 +1,6 @@
 
 const hasMatchingOccupancy = (target, occupancies) => {
-    let { numOfAdults, childAges, numOfChildren } = occupancies[0]
-    let tt = [occupancies[0]]
-    const isMatched = tt.find(({ numOfAdults, childAges, numOfChildren }) => {
+    const isMatched = occupancies.find(({ numOfAdults, childAges, numOfChildren }) => {
         if (Number(numOfAdults) !== Number(target.numOfAdults)) return false;
 
         const targetAges = target.childAges ?? [];
