@@ -1,0 +1,3866 @@
+{
+    "rooms": {
+        "010e7069-5ccf-4638-a129-bbd70a1f1aea": {
+            "id": "010e7069-5ccf-4638-a129-bbd70a1f1aea",
+            "name": "Resort Course View - Twin Bed",
+            "description": "Resort Course View - Twin Bed",
+            "beds": [],
+            "smokingAllowed": false,
+            "facilities": [],
+            "views": []
+        },
+        "41a61629-c5c7-498a-a002-966466d280b9": {
+            "id": "41a61629-c5c7-498a-a002-966466d280b9",
+            "name": "Premium Resort Course View – King Bed",
+            "description": "Premium Resort Course View – King Bed",
+            "beds": [],
+            "smokingAllowed": false,
+            "facilities": [],
+            "views": []
+        },
+        "a3bbff06-ab7a-4c09-9376-52237d45c5e1": {
+            "id": "a3bbff06-ab7a-4c09-9376-52237d45c5e1",
+            "name": "Premium Resort Course View - Twin Bed",
+            "description": "Premium Resort Course View - Twin Bed",
+            "beds": [],
+            "smokingAllowed": false,
+            "facilities": [],
+            "views": []
+        },
+        "13e3ad8a-29dd-43cf-aa84-a53fc992271a": {
+            "id": "13e3ad8a-29dd-43cf-aa84-a53fc992271a",
+            "name": "Resort Course View - King Bed",
+            "description": "Resort Course View - King Bed",
+            "beds": [],
+            "smokingAllowed": false,
+            "facilities": [],
+            "views": []
+        },
+        "720b7c0a-33b3-4219-a104-2d7afad4da6c": {
+            "id": "720b7c0a-33b3-4219-a104-2d7afad4da6c",
+            "name": "Junior Suite",
+            "description": "Junior Suite",
+            "beds": [],
+            "smokingAllowed": false,
+            "facilities": [],
+            "views": []
+        },
+        "72e0c681-814d-4d42-a836-f3792f986a90": {
+            "id": "72e0c681-814d-4d42-a836-f3792f986a90",
+            "name": "RESORT COURSE VIEW ROOM.",
+            "description": "RESORT COURSE VIEW ROOM.",
+            "beds": [],
+            "smokingAllowed": false,
+            "facilities": [],
+            "views": []
+        },
+        "9e917f4b-bffe-4144-ac85-beac001ca983": {
+            "id": "9e917f4b-bffe-4144-ac85-beac001ca983",
+            "name": "Resort Course One Bedroom Suite",
+            "description": "Resort Course One Bedroom Suite",
+            "beds": [],
+            "smokingAllowed": false,
+            "facilities": [],
+            "views": []
+        },
+        "3f9b31bd-2efb-40d1-bfa7-aa2d3003d2ef": {
+            "id": "3f9b31bd-2efb-40d1-bfa7-aa2d3003d2ef",
+            "name": "One Bedroom Terrace Suite",
+            "description": "One Bedroom Terrace Suite",
+            "beds": [],
+            "smokingAllowed": false,
+            "facilities": [],
+            "views": []
+        },
+        "9b9a523c-f681-49e6-8865-e3567d2ec1c0": {
+            "id": "9b9a523c-f681-49e6-8865-e3567d2ec1c0",
+            "name": "One Bedroom Private Pool Suite",
+            "description": "One Bedroom Private Pool Suite",
+            "beds": [],
+            "smokingAllowed": false,
+            "facilities": [],
+            "views": []
+        },
+        "0bb7459b-788a-4c56-8400-d037f5fe1644": {
+            "id": "0bb7459b-788a-4c56-8400-d037f5fe1644",
+            "name": "Two Bedroom Outdoor Jacuzzi Suite",
+            "description": "Two Bedroom Outdoor Jacuzzi Suite",
+            "beds": [],
+            "smokingAllowed": false,
+            "facilities": [],
+            "views": []
+        }
+    },
+    "rates": {
+        "b620003b-b4c5-4413-9e2d-7db36bbfe077": {
+            "id": "b620003b-b4c5-4413-9e2d-7db36bbfe077",
+            "availability": "7",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "010e7069-5ccf-4638-a129-bbd70a1f1aea",
+                    "stdRoomId": "1",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 1180.762,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 1239.8,
+                            "valueType": "Amount",
+                            "estimatedValue": 1239,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 1239,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 59,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 1739,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "1bd16658-8cf6-43b4-9b52-4b83e2abf722": {
+            "id": "1bd16658-8cf6-43b4-9b52-4b83e2abf722",
+            "availability": "7",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "010e7069-5ccf-4638-a129-bbd70a1f1aea",
+                    "stdRoomId": "1",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 1473.218,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 1546.879,
+                            "valueType": "Amount",
+                            "estimatedValue": 1546,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 1546,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 73,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 2046,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "3f91be16-efac-4012-b79a-646ab6185254": {
+            "id": "3f91be16-efac-4012-b79a-646ab6185254",
+            "availability": "12",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "41a61629-c5c7-498a-a002-966466d280b9",
+                    "stdRoomId": "2",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 1282.139,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 1346.246,
+                            "valueType": "Amount",
+                            "estimatedValue": 1346,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 1346,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 64,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 1846,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "5dc19418-ec79-4106-aa08-fbaef3d27230": {
+            "id": "5dc19418-ec79-4106-aa08-fbaef3d27230",
+            "availability": "12",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "41a61629-c5c7-498a-a002-966466d280b9",
+                    "stdRoomId": "2",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 1564.358,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 1642.576,
+                            "valueType": "Amount",
+                            "estimatedValue": 1642,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 1642,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 78,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 2142,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "2499f608-ad79-432e-a8da-1eb74d75dea3": {
+            "id": "2499f608-ad79-432e-a8da-1eb74d75dea3",
+            "availability": "19",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "a3bbff06-ab7a-4c09-9376-52237d45c5e1",
+                    "stdRoomId": "3",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 1282.139,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 1346.246,
+                            "valueType": "Amount",
+                            "estimatedValue": 1346,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 1346,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 64,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 1846,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "82d42100-7c79-4106-a74b-06b60d88367d": {
+            "id": "82d42100-7c79-4106-a74b-06b60d88367d",
+            "availability": "19",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "a3bbff06-ab7a-4c09-9376-52237d45c5e1",
+                    "stdRoomId": "3",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 1564.358,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 1642.576,
+                            "valueType": "Amount",
+                            "estimatedValue": 1642,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 1642,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 78,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 2142,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "4eb28f7b-698e-4a6e-bf80-9a9e732ff169": {
+            "id": "4eb28f7b-698e-4a6e-bf80-9a9e732ff169",
+            "availability": "2",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "13e3ad8a-29dd-43cf-aa84-a53fc992271a",
+                    "stdRoomId": "4",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 1473.218,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 1546.879,
+                            "valueType": "Amount",
+                            "estimatedValue": 1546,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 1546,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 73,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 2046,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "6d580eaf-3ac7-4776-8e2f-c2bd0b92f11d": {
+            "id": "6d580eaf-3ac7-4776-8e2f-c2bd0b92f11d",
+            "availability": "6",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "720b7c0a-33b3-4219-a104-2d7afad4da6c",
+                    "stdRoomId": "5",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 1788.896,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 1878.341,
+                            "valueType": "Amount",
+                            "estimatedValue": 1878,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 1878,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 90,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 2378,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "dd40e67f-141a-4ed2-b693-288e7608c0d6": {
+            "id": "dd40e67f-141a-4ed2-b693-288e7608c0d6",
+            "availability": "6",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "720b7c0a-33b3-4219-a104-2d7afad4da6c",
+                    "stdRoomId": "5",
+                    "numOfAdults": "2",
+                    "numOfChildren": "1",
+                    "childAges": [
+                        "4"
+                    ]
+                }
+            ],
+            "baseRate": 1995.702,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 2095.487,
+                            "valueType": "Amount",
+                            "estimatedValue": 2095,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 2095,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 100,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 2595,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "91455a6c-41af-4ce1-bf08-f568d54f602a": {
+            "id": "91455a6c-41af-4ce1-bf08-f568d54f602a",
+            "availability": "6",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "720b7c0a-33b3-4219-a104-2d7afad4da6c",
+                    "stdRoomId": "5",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 2020.491,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 2121.5155,
+                            "valueType": "Amount",
+                            "estimatedValue": 2121,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 2121,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 101,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 2621,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "23fc813c-0db3-40b9-a99d-05c23aa69e6a": {
+            "id": "23fc813c-0db3-40b9-a99d-05c23aa69e6a",
+            "availability": "6",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "720b7c0a-33b3-4219-a104-2d7afad4da6c",
+                    "stdRoomId": "5",
+                    "numOfAdults": "2",
+                    "numOfChildren": "1",
+                    "childAges": [
+                        "4"
+                    ]
+                }
+            ],
+            "baseRate": 2206.604,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 2316.934,
+                            "valueType": "Amount",
+                            "estimatedValue": 2316,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 2316,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 110,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 2816,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "f937377a-7669-438a-a39b-44d7940c2e6f": {
+            "id": "f937377a-7669-438a-a39b-44d7940c2e6f",
+            "availability": "7",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "72e0c681-814d-4d42-a836-f3792f986a90",
+                    "stdRoomId": "6",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 4018.633,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 4219.5645,
+                            "valueType": "Amount",
+                            "estimatedValue": 4219,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 4219,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 201,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 4719,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "51149cd3-dceb-4d89-b0fe-7cb6237508ef": {
+            "id": "51149cd3-dceb-4d89-b0fe-7cb6237508ef",
+            "availability": "7",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "72e0c681-814d-4d42-a836-f3792f986a90",
+                    "stdRoomId": "6",
+                    "numOfAdults": "2",
+                    "numOfChildren": "1",
+                    "childAges": [
+                        "4"
+                    ]
+                }
+            ],
+            "baseRate": 4225.439,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 4436.711,
+                            "valueType": "Amount",
+                            "estimatedValue": 4436,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 4436,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 211,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 4936,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "3729f6ee-aa29-4f7b-aafd-2e62786a43e6": {
+            "id": "3729f6ee-aa29-4f7b-aafd-2e62786a43e6",
+            "availability": "7",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "9e917f4b-bffe-4144-ac85-beac001ca983",
+                    "stdRoomId": "7",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 4027.259,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 4228.622,
+                            "valueType": "Amount",
+                            "estimatedValue": 4228,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 4228,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 201,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 4728,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "307aff9b-d356-4602-af7e-cf59fcfca6a5": {
+            "id": "307aff9b-d356-4602-af7e-cf59fcfca6a5",
+            "availability": "7",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "9e917f4b-bffe-4144-ac85-beac001ca983",
+                    "stdRoomId": "7",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 4470.671,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 4694.2045,
+                            "valueType": "Amount",
+                            "estimatedValue": 4694,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 4694,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 224,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 5194,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "6426236a-8a99-4960-bb01-c5aede0ca732": {
+            "id": "6426236a-8a99-4960-bb01-c5aede0ca732",
+            "availability": "7",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "3f9b31bd-2efb-40d1-bfa7-aa2d3003d2ef",
+                    "stdRoomId": "8",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 4574.531,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 4803.2575,
+                            "valueType": "Amount",
+                            "estimatedValue": 4803,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 4803,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 229,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 5303,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "aa23feb7-f871-4be5-b2cc-4731a2a52d68": {
+            "id": "aa23feb7-f871-4be5-b2cc-4731a2a52d68",
+            "availability": "7",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "3f9b31bd-2efb-40d1-bfa7-aa2d3003d2ef",
+                    "stdRoomId": "8",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 4626.723,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 4858.059,
+                            "valueType": "Amount",
+                            "estimatedValue": 4858,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 4858,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 232,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 5358,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "49d6c933-d148-45da-9817-a15c46d49cfa": {
+            "id": "49d6c933-d148-45da-9817-a15c46d49cfa",
+            "availability": "4",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "9b9a523c-f681-49e6-8865-e3567d2ec1c0",
+                    "stdRoomId": "9",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 5213.03,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 5473.6815,
+                            "valueType": "Amount",
+                            "estimatedValue": 5473,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 5473,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 260,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 5973,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "38e7c718-b229-431a-98e6-8e380224afad": {
+            "id": "38e7c718-b229-431a-98e6-8e380224afad",
+            "availability": "4",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "9b9a523c-f681-49e6-8865-e3567d2ec1c0",
+                    "stdRoomId": "9",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 5336.191,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 5603.0005,
+                            "valueType": "Amount",
+                            "estimatedValue": 5603,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 5603,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 267,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 6103,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "8be06846-90f6-4f9e-86e7-d9d5e958b32c": {
+            "id": "8be06846-90f6-4f9e-86e7-d9d5e958b32c",
+            "availability": "4",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "9b9a523c-f681-49e6-8865-e3567d2ec1c0",
+                    "stdRoomId": "9",
+                    "numOfAdults": "2",
+                    "numOfChildren": "1",
+                    "childAges": [
+                        "4"
+                    ]
+                }
+            ],
+            "baseRate": 5399.187,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 5669.1465,
+                            "valueType": "Amount",
+                            "estimatedValue": 5669,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 5669,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 270,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 6169,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "ee1b046f-15fb-40f8-a9a8-e26e7dc92760": {
+            "id": "ee1b046f-15fb-40f8-a9a8-e26e7dc92760",
+            "availability": "4",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "9b9a523c-f681-49e6-8865-e3567d2ec1c0",
+                    "stdRoomId": "9",
+                    "numOfAdults": "2",
+                    "numOfChildren": "1",
+                    "childAges": [
+                        "4"
+                    ]
+                }
+            ],
+            "baseRate": 5542.997,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 5820.147,
+                            "valueType": "Amount",
+                            "estimatedValue": 5820,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 5820,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 278,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 6320,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "7b2a87c6-1209-4dc0-97a3-336fffa7d3e1": {
+            "id": "7b2a87c6-1209-4dc0-97a3-336fffa7d3e1",
+            "availability": "2",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "0bb7459b-788a-4c56-8400-d037f5fe1644",
+                    "stdRoomId": "10",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 6140.109,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 6447.1145,
+                            "valueType": "Amount",
+                            "estimatedValue": 6447,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 6447,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 307,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 6947,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "f416a436-25dd-42a5-9ec2-8522673a0440": {
+            "id": "f416a436-25dd-42a5-9ec2-8522673a0440",
+            "availability": "2",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "0bb7459b-788a-4c56-8400-d037f5fe1644",
+                    "stdRoomId": "10",
+                    "numOfAdults": "2",
+                    "numOfChildren": "1",
+                    "childAges": [
+                        "4"
+                    ]
+                }
+            ],
+            "baseRate": 6140.109,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "HALF BOARD",
+                "type": "HalfBoard"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 6447.1145,
+                            "valueType": "Amount",
+                            "estimatedValue": 6447,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 6447,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 307,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 6947,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "138dc008-28ec-4d5a-95e9-2dcd3d571572": {
+            "id": "138dc008-28ec-4d5a-95e9-2dcd3d571572",
+            "availability": "2",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "0bb7459b-788a-4c56-8400-d037f5fe1644",
+                    "stdRoomId": "10",
+                    "numOfAdults": "2",
+                    "numOfChildren": "0"
+                }
+            ],
+            "baseRate": 6366.259,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 6684.572,
+                            "valueType": "Amount",
+                            "estimatedValue": 6684,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 6684,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 318,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 7184,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        },
+        "0496a811-f485-4cf9-a415-7bb033011ccd": {
+            "id": "0496a811-f485-4cf9-a415-7bb033011ccd",
+            "availability": "2",
+            "needsPriceCheck": false,
+            "isPackageRate": false,
+            "providerId": "2",
+            "providerName": "P2",
+            "occupancies": [
+                {
+                    "roomId": "0bb7459b-788a-4c56-8400-d037f5fe1644",
+                    "stdRoomId": "10",
+                    "numOfAdults": "2",
+                    "numOfChildren": "1",
+                    "childAges": [
+                        "4"
+                    ]
+                }
+            ],
+            "baseRate": 6366.259,
+            "currency": "AED",
+            "refundable": true,
+            "refundability": "Refundable",
+            "allGuestsInfoRequired": false,
+            "onlineCancellable": false,
+            "specialRequestSupported": false,
+            "payAtHotel": false,
+            "cardRequired": false,
+            "boardBasis": {
+                "description": "BED AND BREAKFAST",
+                "type": "BedAndBreakfast"
+            },
+            "offers": [
+                {
+                    "title": "ExclusiveDeal",
+                    "description": "3",
+                    "discountOffer": "0",
+                    "percentageDiscountOffer": "0"
+                }
+            ],
+            "cancellationPolicies": [
+                {
+                    "text": "All times are in the local timezone of the hotel",
+                    "rules": [
+                        {
+                            "value": 0,
+                            "valueType": "Amount",
+                            "estimatedValue": 0,
+                            "start": "2026-02-16T00:00:00+00:00",
+                            "end": "2026-02-22T05:59:00.000Z"
+                        },
+                        {
+                            "value": 6684.572,
+                            "valueType": "Amount",
+                            "estimatedValue": 6684,
+                            "start": "2026-02-22T06:00:00.000Z",
+                            "end": "2026-02-23T00:00:00.000Z"
+                        }
+                    ]
+                }
+            ],
+            "additionalCharges": [
+                {
+                    "charge": {
+                        "type": "Tax",
+                        "description": "City Tax",
+                        "frequency": "Unknown",
+                        "unit": "Unknown",
+                        "amount": 20,
+                        "currency": "AED"
+                    },
+                    "text": "Estimated total amount of Tax-20.00 AED"
+                }
+            ],
+            "depositRequired": false,
+            "guaranteeRequired": false,
+            "distributionChannel": "Any",
+            "IsPassportMandatory": false,
+            "IsPANMandatory": true,
+            "providerHotelId": "653507",
+            "isChildConvertedToAdult": false,
+            "traderInformation": {
+                "trader": []
+            },
+            "deposits": [],
+            "policies": [
+                {
+                    "type": "Extra Guest Info",
+                    "text": "We don't guarantee an Extra Bed for Extra guests, it is subject to availability of the hotel and may be chargeable as well."
+                }
+            ],
+            "finalRate": 6684,
+            "finalRateInRoe": null,
+            "sellRate": null,
+            "taxAmount": 318,
+            "salesTax": null,
+            "finalRateWithDefaultAgentMarkup": 7184,
+            "totalDefaultMarkup": 500,
+            "affiliateDiscount": null
+        }
+    },
+    "recommendations": {
+        "20b4219e-4879-4e72-8257-94f70c70eb40": {
+            "id": "20b4219e-4879-4e72-8257-94f70c70eb40",
+            "rates": [
+                "b620003b-b4c5-4413-9e2d-7db36bbfe077",
+                "dd40e67f-141a-4ed2-b693-288e7608c0d6"
+            ],
+            "groupId": "1",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "b5d4fe80-d73d-48ec-a99b-17f0d1e85783": {
+            "id": "b5d4fe80-d73d-48ec-a99b-17f0d1e85783",
+            "rates": [
+                "3f91be16-efac-4012-b79a-646ab6185254",
+                "dd40e67f-141a-4ed2-b693-288e7608c0d6"
+            ],
+            "groupId": "2",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "780be2b3-2025-4527-b265-2c0e9277d7bc": {
+            "id": "780be2b3-2025-4527-b265-2c0e9277d7bc",
+            "rates": [
+                "2499f608-ad79-432e-a8da-1eb74d75dea3",
+                "dd40e67f-141a-4ed2-b693-288e7608c0d6"
+            ],
+            "groupId": "3",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "d18556a4-5696-455f-b9ae-2491a56d966d": {
+            "id": "d18556a4-5696-455f-b9ae-2491a56d966d",
+            "rates": [
+                "23fc813c-0db3-40b9-a99d-05c23aa69e6a",
+                "4eb28f7b-698e-4a6e-bf80-9a9e732ff169"
+            ],
+            "groupId": "4",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "f113f92e-0b8f-4770-8f1a-0266a5444943": {
+            "id": "f113f92e-0b8f-4770-8f1a-0266a5444943",
+            "rates": [
+                "1bd16658-8cf6-43b4-9b52-4b83e2abf722",
+                "23fc813c-0db3-40b9-a99d-05c23aa69e6a"
+            ],
+            "groupId": "1",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "4f3dc176-e8b1-47ef-90be-786b20a4a00c": {
+            "id": "4f3dc176-e8b1-47ef-90be-786b20a4a00c",
+            "rates": [
+                "23fc813c-0db3-40b9-a99d-05c23aa69e6a",
+                "5dc19418-ec79-4106-aa08-fbaef3d27230"
+            ],
+            "groupId": "4",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "a3698bf6-56d8-4fab-8005-084ae933e2e8": {
+            "id": "a3698bf6-56d8-4fab-8005-084ae933e2e8",
+            "rates": [
+                "23fc813c-0db3-40b9-a99d-05c23aa69e6a",
+                "82d42100-7c79-4106-a74b-06b60d88367d"
+            ],
+            "groupId": "4",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "e08474ff-cb82-4524-88f4-f05348126b55": {
+            "id": "e08474ff-cb82-4524-88f4-f05348126b55",
+            "rates": [
+                "6d580eaf-3ac7-4776-8e2f-c2bd0b92f11d",
+                "dd40e67f-141a-4ed2-b693-288e7608c0d6"
+            ],
+            "groupId": "4",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "3b3c59e6-62d6-449e-9562-228c7e41d827": {
+            "id": "3b3c59e6-62d6-449e-9562-228c7e41d827",
+            "rates": [
+                "23fc813c-0db3-40b9-a99d-05c23aa69e6a",
+                "91455a6c-41af-4ce1-bf08-f568d54f602a"
+            ],
+            "groupId": "4",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "9a87570a-9df5-4d1b-a574-87d320548661": {
+            "id": "9a87570a-9df5-4d1b-a574-87d320548661",
+            "rates": [
+                "51149cd3-dceb-4d89-b0fe-7cb6237508ef",
+                "b620003b-b4c5-4413-9e2d-7db36bbfe077"
+            ],
+            "groupId": "5",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "2e9233c5-2630-410e-a859-b814afaea9d9": {
+            "id": "2e9233c5-2630-410e-a859-b814afaea9d9",
+            "rates": [
+                "3f91be16-efac-4012-b79a-646ab6185254",
+                "51149cd3-dceb-4d89-b0fe-7cb6237508ef"
+            ],
+            "groupId": "2",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "5e35d544-6f7f-4fd7-997e-b538be2dd0df": {
+            "id": "5e35d544-6f7f-4fd7-997e-b538be2dd0df",
+            "rates": [
+                "2499f608-ad79-432e-a8da-1eb74d75dea3",
+                "51149cd3-dceb-4d89-b0fe-7cb6237508ef"
+            ],
+            "groupId": "3",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "3860153c-9b81-4238-8a2e-a0b6a7a1a7a8": {
+            "id": "3860153c-9b81-4238-8a2e-a0b6a7a1a7a8",
+            "rates": [
+                "dd40e67f-141a-4ed2-b693-288e7608c0d6",
+                "f937377a-7669-438a-a39b-44d7940c2e6f"
+            ],
+            "groupId": "4",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "962a1d74-1ee5-48b7-baf3-46bcab20d5ba": {
+            "id": "962a1d74-1ee5-48b7-baf3-46bcab20d5ba",
+            "rates": [
+                "23fc813c-0db3-40b9-a99d-05c23aa69e6a",
+                "3729f6ee-aa29-4f7b-aafd-2e62786a43e6"
+            ],
+            "groupId": "4",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "6401e746-fc36-4542-ab52-18ba26f408ea": {
+            "id": "6401e746-fc36-4542-ab52-18ba26f408ea",
+            "rates": [
+                "307aff9b-d356-4602-af7e-cf59fcfca6a5",
+                "dd40e67f-141a-4ed2-b693-288e7608c0d6"
+            ],
+            "groupId": "6",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "b452bf2f-3fe2-4bed-be03-d72e6e9ef5d5": {
+            "id": "b452bf2f-3fe2-4bed-be03-d72e6e9ef5d5",
+            "rates": [
+                "aa23feb7-f871-4be5-b2cc-4731a2a52d68",
+                "dd40e67f-141a-4ed2-b693-288e7608c0d6"
+            ],
+            "groupId": "7",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "3f130b8b-5077-4ec7-96e1-58e572eb097f": {
+            "id": "3f130b8b-5077-4ec7-96e1-58e572eb097f",
+            "rates": [
+                "b620003b-b4c5-4413-9e2d-7db36bbfe077",
+                "ee1b046f-15fb-40f8-a9a8-e26e7dc92760"
+            ],
+            "groupId": "1",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "cfff7cbe-5e5c-4a17-9457-b770f06591ce": {
+            "id": "cfff7cbe-5e5c-4a17-9457-b770f06591ce",
+            "rates": [
+                "23fc813c-0db3-40b9-a99d-05c23aa69e6a",
+                "6426236a-8a99-4960-bb01-c5aede0ca732"
+            ],
+            "groupId": "4",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "c9b39c6c-37fc-4266-a926-1d56b9d7a3cb": {
+            "id": "c9b39c6c-37fc-4266-a926-1d56b9d7a3cb",
+            "rates": [
+                "2499f608-ad79-432e-a8da-1eb74d75dea3",
+                "ee1b046f-15fb-40f8-a9a8-e26e7dc92760"
+            ],
+            "groupId": "3",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "de63fa22-f72e-4253-8af3-c12f7ae0116c": {
+            "id": "de63fa22-f72e-4253-8af3-c12f7ae0116c",
+            "rates": [
+                "3f91be16-efac-4012-b79a-646ab6185254",
+                "ee1b046f-15fb-40f8-a9a8-e26e7dc92760"
+            ],
+            "groupId": "2",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "a8a7ec04-4b0d-4a67-bc03-5fceec4a7fbb": {
+            "id": "a8a7ec04-4b0d-4a67-bc03-5fceec4a7fbb",
+            "rates": [
+                "4eb28f7b-698e-4a6e-bf80-9a9e732ff169",
+                "8be06846-90f6-4f9e-86e7-d9d5e958b32c"
+            ],
+            "groupId": "8",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "0282ea55-8d24-4fa7-b5a7-dfe88cae1891": {
+            "id": "0282ea55-8d24-4fa7-b5a7-dfe88cae1891",
+            "rates": [
+                "1bd16658-8cf6-43b4-9b52-4b83e2abf722",
+                "8be06846-90f6-4f9e-86e7-d9d5e958b32c"
+            ],
+            "groupId": "1",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "34b054cc-3202-497e-844e-41eb9c4532c3": {
+            "id": "34b054cc-3202-497e-844e-41eb9c4532c3",
+            "rates": [
+                "82d42100-7c79-4106-a74b-06b60d88367d",
+                "8be06846-90f6-4f9e-86e7-d9d5e958b32c"
+            ],
+            "groupId": "3",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "aad4f3a6-c597-4eea-8a49-8615b297d79e": {
+            "id": "aad4f3a6-c597-4eea-8a49-8615b297d79e",
+            "rates": [
+                "5dc19418-ec79-4106-aa08-fbaef3d27230",
+                "8be06846-90f6-4f9e-86e7-d9d5e958b32c"
+            ],
+            "groupId": "2",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "15e6fab6-082a-4b2f-a386-508948fa9183": {
+            "id": "15e6fab6-082a-4b2f-a386-508948fa9183",
+            "rates": [
+                "38e7c718-b229-431a-98e6-8e380224afad",
+                "dd40e67f-141a-4ed2-b693-288e7608c0d6"
+            ],
+            "groupId": "9",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "df3fb0d6-19ba-4dce-ae09-60e2e510f70d": {
+            "id": "df3fb0d6-19ba-4dce-ae09-60e2e510f70d",
+            "rates": [
+                "23fc813c-0db3-40b9-a99d-05c23aa69e6a",
+                "49d6c933-d148-45da-9817-a15c46d49cfa"
+            ],
+            "groupId": "4",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "a6ce8cf5-7546-4c71-b0cb-181c57a381b0": {
+            "id": "a6ce8cf5-7546-4c71-b0cb-181c57a381b0",
+            "rates": [
+                "0496a811-f485-4cf9-a415-7bb033011ccd",
+                "b620003b-b4c5-4413-9e2d-7db36bbfe077"
+            ],
+            "groupId": "10",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "781e1192-ac0b-4ad8-8565-97a4bff07205": {
+            "id": "781e1192-ac0b-4ad8-8565-97a4bff07205",
+            "rates": [
+                "1bd16658-8cf6-43b4-9b52-4b83e2abf722",
+                "f416a436-25dd-42a5-9ec2-8522673a0440"
+            ],
+            "groupId": "1",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "7e6777f1-660d-4dd2-9909-5c10c3b13beb": {
+            "id": "7e6777f1-660d-4dd2-9909-5c10c3b13beb",
+            "rates": [
+                "4eb28f7b-698e-4a6e-bf80-9a9e732ff169",
+                "f416a436-25dd-42a5-9ec2-8522673a0440"
+            ],
+            "groupId": "8",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "b0521185-0e44-499a-b569-d5b9d7603586": {
+            "id": "b0521185-0e44-499a-b569-d5b9d7603586",
+            "rates": [
+                "0496a811-f485-4cf9-a415-7bb033011ccd",
+                "3f91be16-efac-4012-b79a-646ab6185254"
+            ],
+            "groupId": "10",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "69594524-6338-4ae5-a445-e8be40796b0b": {
+            "id": "69594524-6338-4ae5-a445-e8be40796b0b",
+            "rates": [
+                "0496a811-f485-4cf9-a415-7bb033011ccd",
+                "2499f608-ad79-432e-a8da-1eb74d75dea3"
+            ],
+            "groupId": "10",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "a5ee0a26-0e69-4395-a414-48ed1516e2a1": {
+            "id": "a5ee0a26-0e69-4395-a414-48ed1516e2a1",
+            "rates": [
+                "5dc19418-ec79-4106-aa08-fbaef3d27230",
+                "f416a436-25dd-42a5-9ec2-8522673a0440"
+            ],
+            "groupId": "2",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "52f62661-fe66-4783-810b-2cec3a6cce55": {
+            "id": "52f62661-fe66-4783-810b-2cec3a6cce55",
+            "rates": [
+                "82d42100-7c79-4106-a74b-06b60d88367d",
+                "f416a436-25dd-42a5-9ec2-8522673a0440"
+            ],
+            "groupId": "3",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "af249ecc-9f5d-406e-a71c-e0afa48bd724": {
+            "id": "af249ecc-9f5d-406e-a71c-e0afa48bd724",
+            "rates": [
+                "0496a811-f485-4cf9-a415-7bb033011ccd",
+                "6d580eaf-3ac7-4776-8e2f-c2bd0b92f11d"
+            ],
+            "groupId": "10",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "e48a485a-41b9-4fb5-8726-a525c3f2092c": {
+            "id": "e48a485a-41b9-4fb5-8726-a525c3f2092c",
+            "rates": [
+                "91455a6c-41af-4ce1-bf08-f568d54f602a",
+                "f416a436-25dd-42a5-9ec2-8522673a0440"
+            ],
+            "groupId": "4",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "4028bd5a-fd6a-45c2-bf16-c7a7fcbe2d87": {
+            "id": "4028bd5a-fd6a-45c2-bf16-c7a7fcbe2d87",
+            "rates": [
+                "51149cd3-dceb-4d89-b0fe-7cb6237508ef",
+                "f937377a-7669-438a-a39b-44d7940c2e6f"
+            ],
+            "groupId": "5",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "9300f326-93d6-4aee-bccf-adca3382a9cc": {
+            "id": "9300f326-93d6-4aee-bccf-adca3382a9cc",
+            "rates": [
+                "307aff9b-d356-4602-af7e-cf59fcfca6a5",
+                "51149cd3-dceb-4d89-b0fe-7cb6237508ef"
+            ],
+            "groupId": "6",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "68162c99-b3e3-41b7-88fe-6d2a44ab1eec": {
+            "id": "68162c99-b3e3-41b7-88fe-6d2a44ab1eec",
+            "rates": [
+                "51149cd3-dceb-4d89-b0fe-7cb6237508ef",
+                "aa23feb7-f871-4be5-b2cc-4731a2a52d68"
+            ],
+            "groupId": "5",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "c91bd61d-5758-4861-bfe4-a90194828444": {
+            "id": "c91bd61d-5758-4861-bfe4-a90194828444",
+            "rates": [
+                "3729f6ee-aa29-4f7b-aafd-2e62786a43e6",
+                "8be06846-90f6-4f9e-86e7-d9d5e958b32c"
+            ],
+            "groupId": "6",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "e8cd5df2-e647-47cb-bf3e-d8360b57575f": {
+            "id": "e8cd5df2-e647-47cb-bf3e-d8360b57575f",
+            "rates": [
+                "38e7c718-b229-431a-98e6-8e380224afad",
+                "51149cd3-dceb-4d89-b0fe-7cb6237508ef"
+            ],
+            "groupId": "9",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "7865a310-959f-42e9-8ec7-213deda373a4": {
+            "id": "7865a310-959f-42e9-8ec7-213deda373a4",
+            "rates": [
+                "6426236a-8a99-4960-bb01-c5aede0ca732",
+                "8be06846-90f6-4f9e-86e7-d9d5e958b32c"
+            ],
+            "groupId": "7",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "fac8d0ce-15df-43b2-a935-daf21ac2df7c": {
+            "id": "fac8d0ce-15df-43b2-a935-daf21ac2df7c",
+            "rates": [
+                "307aff9b-d356-4602-af7e-cf59fcfca6a5",
+                "ee1b046f-15fb-40f8-a9a8-e26e7dc92760"
+            ],
+            "groupId": "6",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "5a044432-2857-409a-b203-ab282dd3c3a4": {
+            "id": "5a044432-2857-409a-b203-ab282dd3c3a4",
+            "rates": [
+                "3729f6ee-aa29-4f7b-aafd-2e62786a43e6",
+                "f416a436-25dd-42a5-9ec2-8522673a0440"
+            ],
+            "groupId": "6",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "acb3092d-670c-4315-b3cc-ce408441cd58": {
+            "id": "acb3092d-670c-4315-b3cc-ce408441cd58",
+            "rates": [
+                "aa23feb7-f871-4be5-b2cc-4731a2a52d68",
+                "ee1b046f-15fb-40f8-a9a8-e26e7dc92760"
+            ],
+            "groupId": "7",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "c7802455-6101-4c38-8e03-868bb6c74886": {
+            "id": "c7802455-6101-4c38-8e03-868bb6c74886",
+            "rates": [
+                "0496a811-f485-4cf9-a415-7bb033011ccd",
+                "f937377a-7669-438a-a39b-44d7940c2e6f"
+            ],
+            "groupId": "10",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "d2f274de-20f9-4987-8e64-29c581585255": {
+            "id": "d2f274de-20f9-4987-8e64-29c581585255",
+            "rates": [
+                "49d6c933-d148-45da-9817-a15c46d49cfa",
+                "8be06846-90f6-4f9e-86e7-d9d5e958b32c"
+            ],
+            "groupId": "9",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "acec1a44-61c7-4489-a3ed-d1a9da6bbd22": {
+            "id": "acec1a44-61c7-4489-a3ed-d1a9da6bbd22",
+            "rates": [
+                "6426236a-8a99-4960-bb01-c5aede0ca732",
+                "f416a436-25dd-42a5-9ec2-8522673a0440"
+            ],
+            "groupId": "7",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "ec69a215-6968-48c0-91d2-c7b6d5cf89b9": {
+            "id": "ec69a215-6968-48c0-91d2-c7b6d5cf89b9",
+            "rates": [
+                "0496a811-f485-4cf9-a415-7bb033011ccd",
+                "307aff9b-d356-4602-af7e-cf59fcfca6a5"
+            ],
+            "groupId": "10",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "e2a76898-1168-42d7-a124-2c3a0d2fbd6d": {
+            "id": "e2a76898-1168-42d7-a124-2c3a0d2fbd6d",
+            "rates": [
+                "38e7c718-b229-431a-98e6-8e380224afad",
+                "ee1b046f-15fb-40f8-a9a8-e26e7dc92760"
+            ],
+            "groupId": "9",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "194da6f0-5ac6-47c0-9cf1-abb3e7097d3e": {
+            "id": "194da6f0-5ac6-47c0-9cf1-abb3e7097d3e",
+            "rates": [
+                "0496a811-f485-4cf9-a415-7bb033011ccd",
+                "aa23feb7-f871-4be5-b2cc-4731a2a52d68"
+            ],
+            "groupId": "10",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "c230e17c-9686-473d-a3aa-57589f7b6981": {
+            "id": "c230e17c-9686-473d-a3aa-57589f7b6981",
+            "rates": [
+                "49d6c933-d148-45da-9817-a15c46d49cfa",
+                "f416a436-25dd-42a5-9ec2-8522673a0440"
+            ],
+            "groupId": "9",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "efc405fa-9565-4e09-9561-a248d8ec29c4": {
+            "id": "efc405fa-9565-4e09-9561-a248d8ec29c4",
+            "rates": [
+                "0496a811-f485-4cf9-a415-7bb033011ccd",
+                "38e7c718-b229-431a-98e6-8e380224afad"
+            ],
+            "groupId": "10",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "c48b340b-7a2b-44d8-84fc-d9132c9f74a6": {
+            "id": "c48b340b-7a2b-44d8-84fc-d9132c9f74a6",
+            "rates": [
+                "7b2a87c6-1209-4dc0-97a3-336fffa7d3e1",
+                "f416a436-25dd-42a5-9ec2-8522673a0440"
+            ],
+            "groupId": "10",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        },
+        "b2ed6164-f780-432f-8a4a-4be9c2697ce6": {
+            "id": "b2ed6164-f780-432f-8a4a-4be9c2697ce6",
+            "rates": [
+                "0496a811-f485-4cf9-a415-7bb033011ccd",
+                "138dc008-28ec-4d5a-95e9-2dcd3d571572"
+            ],
+            "groupId": "10",
+            "isHoldAllowedForRecommendation": true,
+            "travclanHoldTimeLimitForRecommendation": "2026-02-20T05:59:00.000Z"
+        }
+    },
+    "standardizedRooms": {
+        "1": {
+            "id": "1",
+            "name": "Resort Course View Twin Bed",
+            "images": [
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_020.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_020.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_020.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                }
+            ],
+            "facilities": [
+                {
+                    "name": "Living room"
+                },
+                {
+                    "name": "Number of bedrooms"
+                },
+                {
+                    "name": "Room Size 40 sqm"
+                },
+                {
+                    "name": "Single bed 80-130 width"
+                }
+            ],
+            "maxGuestAllowed": "4",
+            "maxAdultAllowed": "4",
+            "maxChildrenAllowed": "3",
+            "area": {},
+            "views": [],
+            "type": "Resort Course View - Twin Bed",
+            "beds": [
+                {
+                    "count": "2"
+                }
+            ],
+            "mappedRoomRates": [],
+            "attributes": []
+        },
+        "2": {
+            "id": "2",
+            "name": "Premium Resort Course View King Bed",
+            "images": [
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_016.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_016.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_016.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                },
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_036.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_036.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_036.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                },
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_046_20260113_101839.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_046_20260113_101839.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_046_20260113_101839.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                }
+            ],
+            "facilities": [
+                {
+                    "name": "Room Size 33 sqm"
+                },
+                {
+                    "name": "Internet access"
+                },
+                {
+                    "name": "Living room"
+                },
+                {
+                    "name": "Wheelchair-accessible"
+                },
+                {
+                    "name": "Disability-friendly bathroom"
+                },
+                {
+                    "name": "Wi-fi"
+                },
+                {
+                    "name": "Cot on demand"
+                },
+                {
+                    "name": "Extra beds on demand"
+                },
+                {
+                    "name": "Number of bedrooms"
+                },
+                {
+                    "name": "Double bed 131-150 width"
+                },
+                {
+                    "name": "King-size bed 150-183 width"
+                }
+            ],
+            "maxGuestAllowed": "4",
+            "maxAdultAllowed": "4",
+            "maxChildrenAllowed": "3",
+            "area": {},
+            "views": [],
+            "type": "Deluxe Room - King Bed",
+            "beds": [
+                {
+                    "count": "1"
+                },
+                {
+                    "count": "1"
+                }
+            ],
+            "mappedRoomRates": [],
+            "attributes": []
+        },
+        "3": {
+            "id": "3",
+            "name": "Premium Resort Course View Twin Bed",
+            "images": [
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_032.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_032.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_032.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                }
+            ],
+            "facilities": [
+                {
+                    "name": "Room Size 33 sqm"
+                },
+                {
+                    "name": "Double bed 131-150 width"
+                }
+            ],
+            "maxGuestAllowed": "4",
+            "maxAdultAllowed": "4",
+            "maxChildrenAllowed": "3",
+            "area": {},
+            "views": [],
+            "type": "Premium Resort Course View - Twin Bed",
+            "beds": [
+                {
+                    "count": "1"
+                }
+            ],
+            "mappedRoomRates": [],
+            "attributes": []
+        },
+        "4": {
+            "id": "4",
+            "name": "Resort Course View King Bed",
+            "images": [
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_019.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_019.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_019.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                },
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_050_20260113_102154.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_050_20260113_102154.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_050_20260113_102154.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                }
+            ],
+            "facilities": [
+                {
+                    "name": "Wi-fi"
+                },
+                {
+                    "name": "Cot on demand"
+                },
+                {
+                    "name": "Room Size 33 sqm"
+                },
+                {
+                    "name": "Extra beds on demand"
+                },
+                {
+                    "name": "Number of bedrooms"
+                },
+                {
+                    "name": "Disability-friendly bathroom"
+                },
+                {
+                    "name": "Wheelchair-accessible"
+                },
+                {
+                    "name": "Living room"
+                },
+                {
+                    "name": "Internet access"
+                },
+                {
+                    "name": "King-size bed 150-183 width"
+                }
+            ],
+            "maxGuestAllowed": "4",
+            "maxAdultAllowed": "4",
+            "maxChildrenAllowed": "3",
+            "area": {},
+            "views": [],
+            "type": "Resort Course View - King Bed",
+            "beds": [
+                {
+                    "count": "1"
+                }
+            ],
+            "mappedRoomRates": [],
+            "attributes": []
+        },
+        "5": {
+            "id": "5",
+            "name": "Junior Suite",
+            "images": [
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_052_20260113_102339.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_052_20260113_102339.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_052_20260113_102339.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                },
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_024.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_024.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_024.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                }
+            ],
+            "facilities": [
+                {
+                    "name": "Wheelchair-accessible"
+                },
+                {
+                    "name": "Internet access"
+                },
+                {
+                    "name": "Cot on demand"
+                },
+                {
+                    "name": "Living room"
+                },
+                {
+                    "name": "Extra beds on demand"
+                },
+                {
+                    "name": "Room Size 70 sqm"
+                },
+                {
+                    "name": "Number of bedrooms"
+                },
+                {
+                    "name": "Wi-fi"
+                },
+                {
+                    "name": "Disability-friendly bathroom"
+                },
+                {
+                    "name": "Double bed 131-150 width"
+                }
+            ],
+            "maxGuestAllowed": "5",
+            "maxAdultAllowed": "5",
+            "maxChildrenAllowed": "3",
+            "area": {},
+            "views": [],
+            "type": "JUNIOR SUITE STANDARD",
+            "beds": [],
+            "mappedRoomRates": [],
+            "attributes": []
+        },
+        "6": {
+            "id": "6",
+            "name": "Resort Course View",
+            "images": [
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_020.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_020.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_020.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                },
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_019.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_019.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_019.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                },
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_050_20260113_102154.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_050_20260113_102154.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_050_20260113_102154.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                },
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_003.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_003.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_003.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                },
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_004.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_004.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_004.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                },
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_051_20260113_102257.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_051_20260113_102257.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_051_20260113_102257.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                }
+            ],
+            "facilities": [
+                {
+                    "name": "Living room"
+                },
+                {
+                    "name": "Number of bedrooms"
+                },
+                {
+                    "name": "Room Size 40 sqm"
+                },
+                {
+                    "name": "Single bed 80-130 width"
+                },
+                {
+                    "name": "Wi-fi"
+                },
+                {
+                    "name": "Cot on demand"
+                },
+                {
+                    "name": "Room Size 33 sqm"
+                },
+                {
+                    "name": "Extra beds on demand"
+                },
+                {
+                    "name": "Disability-friendly bathroom"
+                },
+                {
+                    "name": "Wheelchair-accessible"
+                },
+                {
+                    "name": "Internet access"
+                },
+                {
+                    "name": "King-size bed 150-183 width"
+                }
+            ],
+            "maxGuestAllowed": "4",
+            "maxAdultAllowed": "4",
+            "maxChildrenAllowed": "3",
+            "area": {},
+            "views": [],
+            "type": "Double resort view.",
+            "beds": [
+                {
+                    "count": "2"
+                },
+                {
+                    "count": "1"
+                }
+            ],
+            "mappedRoomRates": [],
+            "attributes": []
+        },
+        "7": {
+            "id": "7",
+            "name": "Resort Course One Bedroom Suite",
+            "images": [
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_018.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_018.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_018.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                }
+            ],
+            "facilities": [
+                {
+                    "name": "Living room"
+                },
+                {
+                    "name": "Internet access"
+                },
+                {
+                    "name": "Extra beds on demand"
+                },
+                {
+                    "name": "Cot on demand"
+                },
+                {
+                    "name": "Wi-fi"
+                },
+                {
+                    "name": "Room Size 168 sqm"
+                },
+                {
+                    "name": "Number of bedrooms"
+                },
+                {
+                    "name": "Disability-friendly bathroom"
+                },
+                {
+                    "name": "Wheelchair-accessible"
+                },
+                {
+                    "name": "Double bed 131-150 width"
+                }
+            ],
+            "maxGuestAllowed": "8",
+            "maxAdultAllowed": "8",
+            "maxChildrenAllowed": "5",
+            "area": {},
+            "views": [],
+            "type": "SUITE SEA VIEW ONE BEDROOM",
+            "beds": [],
+            "mappedRoomRates": [],
+            "attributes": []
+        },
+        "8": {
+            "id": "8",
+            "name": "One Bedroom Terrace Suite",
+            "images": [
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_018.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_018.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_018.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                }
+            ],
+            "facilities": [
+                {
+                    "name": "Living room"
+                },
+                {
+                    "name": "Internet access"
+                },
+                {
+                    "name": "Extra beds on demand"
+                },
+                {
+                    "name": "Cot on demand"
+                },
+                {
+                    "name": "Wi-fi"
+                },
+                {
+                    "name": "Room Size 168 sqm"
+                },
+                {
+                    "name": "Number of bedrooms"
+                },
+                {
+                    "name": "Disability-friendly bathroom"
+                },
+                {
+                    "name": "Wheelchair-accessible"
+                },
+                {
+                    "name": "Double bed 131-150 width"
+                }
+            ],
+            "maxGuestAllowed": "8",
+            "maxAdultAllowed": "8",
+            "maxChildrenAllowed": "5",
+            "area": {},
+            "views": [],
+            "type": "One Bedroom Terrace Suite",
+            "beds": [
+                {
+                    "count": "1"
+                }
+            ],
+            "mappedRoomRates": [],
+            "attributes": []
+        },
+        "9": {
+            "id": "9",
+            "name": "One Bedroom Private Pool Suite",
+            "images": [
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_018.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_018.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_018.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                }
+            ],
+            "facilities": [
+                {
+                    "name": "Wi-fi"
+                },
+                {
+                    "name": "Number of bedrooms"
+                },
+                {
+                    "name": "Internet access"
+                },
+                {
+                    "name": "Living room"
+                },
+                {
+                    "name": "Wheelchair-accessible"
+                },
+                {
+                    "name": "Disability-friendly bathroom"
+                },
+                {
+                    "name": "Cot on demand"
+                },
+                {
+                    "name": "Extra beds on demand"
+                },
+                {
+                    "name": "Room Size 168 sqm"
+                },
+                {
+                    "name": "King-size bed 150-183 width"
+                },
+                {
+                    "name": "Sofa bed"
+                }
+            ],
+            "maxGuestAllowed": "8",
+            "maxAdultAllowed": "8",
+            "maxChildrenAllowed": "5",
+            "area": {},
+            "views": [],
+            "type": "One Bedroom Private Pool Suite",
+            "beds": [
+                {
+                    "count": "1"
+                },
+                {
+                    "count": "1"
+                }
+            ],
+            "mappedRoomRates": [],
+            "attributes": []
+        },
+        "10": {
+            "id": "10",
+            "name": "Two Bedroom Outdoor Jacuzzi Suite",
+            "images": [
+                {
+                    "links": [
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/bigger/65/653507/653507a_hb_ro_025.jpg",
+                            "size": "Standard"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xl/65/653507/653507a_hb_ro_025.jpg",
+                            "size": "Xl"
+                        },
+                        {
+                            "url": "https://photos.hotelbeds.com/giata/xxl/65/653507/653507a_hb_ro_025.jpg",
+                            "size": "Xxl"
+                        }
+                    ],
+                    "caption": "Room"
+                }
+            ],
+            "facilities": [
+                {
+                    "name": "Extra beds on demand"
+                },
+                {
+                    "name": "Wi-fi"
+                },
+                {
+                    "name": "Disability-friendly bathroom"
+                },
+                {
+                    "name": "Wheelchair-accessible"
+                },
+                {
+                    "name": "Living room"
+                },
+                {
+                    "name": "Internet access"
+                },
+                {
+                    "name": "Number of bedrooms"
+                },
+                {
+                    "name": "Room Size 250 sqm"
+                },
+                {
+                    "name": "Cot on demand"
+                },
+                {
+                    "name": "Double bed 131-150 width"
+                }
+            ],
+            "maxGuestAllowed": "8",
+            "maxAdultAllowed": "8",
+            "maxChildrenAllowed": "5",
+            "area": {},
+            "views": [],
+            "type": "Two Bedroom Outdoor Jacuzzi Suite",
+            "beds": [
+                {
+                    "count": "1"
+                }
+            ],
+            "mappedRoomRates": [],
+            "attributes": []
+        }
+    },
+    "supplierRates": null
+}

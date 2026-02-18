@@ -6,32 +6,56 @@ import './App.css';
 import roomsApiData from './roomrates/itineraryData.json';
 import occupancyArr from './roomrates/userOccupancy.json';
 import { getRoomsRecommendation } from './roomrates/utilityFinal';
+import comboRate from './roomRateEngine/RatesJson/comboRate.json'
+import { prepareRecommendationJson } from './roomRateEngine/prepareRecommendationRates';
+
 
 function App() {
-  const [currentRoomSelectionIndex, setCurrentRoomSelectionIndex] = useState(0);
-  const [count, setCount] = useState(0);
+  // const [currentRoomSelectionIndex, setCurrentRoomSelectionIndex] = useState(0);
+  // const [count, setCount] = useState(0);
 
-  const [alreadySelectedRate, setRoomSelectedRate] = useState([]);
+  // const [alreadySelectedRate, setRoomSelectedRate] = useState([]);
+
+  // useEffect(() => {
+  //   getRoomsRecommendation({
+  //     userOccupancyArr: occupancyArr,
+  //     roomsApiData,
+  //     currentRoomSelectionIndex,
+  //     alreadySelectedRate,
+  //   });
+  // }, []);
+
+  // const handleSelectRate = (rateId) => {
+  //   setRoomSelectedRate((prev) => [...prev, rateId]);
+  //   setCurrentRoomSelectionIndex((prev) => prev + 1);
+  //   getRoomsRecommendation({
+  //     userOccupancyArr: occupancyArr,
+  //     roomsApiData,
+  //     currentRoomSelectionIndex: currentRoomSelectionIndex + 1,
+  //     alreadySelectedRate: [...alreadySelectedRate, rateId],
+  //   });
+  // };
 
   useEffect(() => {
-    getRoomsRecommendation({
-      userOccupancyArr: occupancyArr,
-      roomsApiData,
-      currentRoomSelectionIndex,
-      alreadySelectedRate,
-    });
-  }, []);
+    console.log('comboRate', comboRate)
+    console.log(prepareRecommendationJson({
+      occupancy: [
+        {
+          "numOfAdults": 2,
+          "childAges": [
+            6
+          ]
+        },
+        {
+          "numOfAdults": 2,
+          "childAges": []
+        }
+      ],
+      roomRatesJson: comboRate
+    }))
+  }, [])
 
-  const handleSelectRate = (rateId) => {
-    setRoomSelectedRate((prev) => [...prev, rateId]);
-    setCurrentRoomSelectionIndex((prev) => prev + 1);
-    getRoomsRecommendation({
-      userOccupancyArr: occupancyArr,
-      roomsApiData,
-      currentRoomSelectionIndex: currentRoomSelectionIndex + 1,
-      alreadySelectedRate: [...alreadySelectedRate, rateId],
-    });
-  };
+  return null;
 
   return (
     <>
