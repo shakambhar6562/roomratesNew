@@ -1,189 +1,312 @@
+/**
+ * Attempts to find an occupancy configuration from a rate
+ * that matches the required occupancy (adults + children ages),
+ * while skipping already-used occupancy indexes.
+ *
+ * WHY THIS EXISTS:
+ * - A single rate can expose multiple occupancy options
+ * - Each occupancy option can be consumed only once per recommendation-rate-position
+ * - Children ages must match as a multiset (order doesn't matter)
+ *
+ * @param {Object} requiredOccupancy - Occupancy requested by the user
+ * @param {Array<Object>} availableOccupancies - Occupancies exposed by a rate
+ * @param {Array<number>} consumedIndexes - Occupancy indexes already used
+ *
+ * @returns {Object|null} Matched occupancy with its index, or null if none match
+ */
+const findMatchingOccupancy = (
+    requiredOccupancy,
+    availableOccupancies,
+    consumedIndexes = []
+) => {
+    const requiredAdultCount = Number(requiredOccupancy.numOfAdults);
 
-const hasMatchingOccupancy = (target, occupancies, skipList = [], rateCounter) => {
-    const isMatched = occupancies.findIndex(({ numOfAdults, childAges, numOfChildren }, idx) => {
-        if (skipList.includes(idx)) return false;
-        if (Number(numOfAdults) !== Number(target.numOfAdults)) return false;
+    // Normalize required child ages once for cheaper comparisons
+    const requiredChildAges = Array.isArray(requiredOccupancy.childAges)
+        ? requiredOccupancy.childAges.map(Number)
+        : [];
 
-        const targetAges = target.childAges ?? [];
-        const currentAges = childAges ?? [];
+    const matchedIndex = availableOccupancies.findIndex((occ, idx) => {
+        // Skip occupancies that were already consumed earlier
+        if (consumedIndexes.includes(idx)) return false;
 
-        if (Array.isArray(target.childAges) && !childAges) {
-            return target.childAges.length === 0 && Number(numOfChildren) === 0
+        // Adult count must match exactly
+        if (Number(occ.numOfAdults) !== requiredAdultCount) return false;
+
+        const currentChildAges = Array.isArray(occ.childAges)
+            ? occ.childAges.map(Number)
+            : [];
+
+        /**
+         * Edge case:
+         * - Requested childAges exists but rate occupancy does not
+         * - Valid only when both represent "no children"
+         */
+        if (Array.isArray(requiredOccupancy.childAges) && !occ.childAges) {
+            return requiredChildAges.length === 0 && Number(occ.numOfChildren) === 0;
         }
 
-        if (targetAges.length !== currentAges.length) return false;
+        // Child count mismatch → cannot be a match
+        if (requiredChildAges.length !== currentChildAges.length) return false;
 
-        // Compare as multisets
-        const ageCount = new Map();
+        /**
+         * Multiset comparison for child ages
+         * WHY:
+         * - Order does not matter
+         * - Duplicates must be respected (e.g., [5,5] ≠ [5,6])
+         */
+        const ageFrequencyMap = new Map();
 
-        for (const age of currentAges) {
-            ageCount.set(Number(age), (ageCount.get(Number(age)) || 0) + 1);
+        for (const age of currentChildAges) {
+            ageFrequencyMap.set(age, (ageFrequencyMap.get(age) || 0) + 1);
         }
 
-        for (const age of targetAges) {
-            if (!ageCount.has(Number(age))) return false;
-            ageCount.set(Number(age), ageCount.get(Number(age)) - 1);
-            if (ageCount.get(Number(age)) === 0) ageCount.delete(Number(age));
+        for (const age of requiredChildAges) {
+            const count = ageFrequencyMap.get(age);
+            if (!count) return false;
+
+            count === 1
+                ? ageFrequencyMap.delete(age)
+                : ageFrequencyMap.set(age, count - 1);
         }
 
-        return ageCount.size === 0;
+        return ageFrequencyMap.size === 0;
     });
-    if (isMatched !== -1) {
-        return {
-            ...occupancies[isMatched],
-            idx: isMatched
-        }
-    }
-    return null;
+
+    if (matchedIndex === -1) return null;
+
+    // Return matched occupancy + its index for tracking future consumption
+    return {
+        ...availableOccupancies[matchedIndex],
+        idx: matchedIndex
+    };
 };
 
 
 
-export const prepareRecommendationJson = ({ occupancy, roomRatesJson, previousSelectedRates = null, occupancyIndex = 0 }) => {
-    if (!roomRatesJson || typeof roomRatesJson !== 'object') throw new Error('Please pass in proper roomRates json');
-    const ROOM_RATES_JSON_FINAL = JSON.parse(JSON.stringify(roomRatesJson));
+/**
+ * Builds room recommendations for each requested occupancy.
+ *
+ * CORE RESPONSIBILITIES:
+ * 1. Match each required occupancy with a valid rate occupancy
+ * 2. Prevent reusing the same occupancy across rate positions
+ * 3. Aggregate total recommendation price
+ * 4. Sort recommendations deterministically by price
+ *
+ * IMPORTANT:
+ * - Logic intentionally throws if any occupancy cannot be matched
+ * - This keeps the engine strict and avoids silent partial results
+ */
+export const prepareRecommendationJson = ({
+    occupancy,
+    roomRatesJson,
+    previousSelectedRates = null,
+    occupancyIndex = 0
+}) => {
+    if (!roomRatesJson || typeof roomRatesJson !== 'object') {
+        throw new Error('Please pass in proper roomRates json');
+    }
 
-    if (!occupancy || !Array.isArray(occupancy) || !occupancy?.some((i) => i?.numOfAdults > 0)) throw new Error('Occupancy needs to be a array  or should have atleast 1 adult');
+    if (
+        !Array.isArray(occupancy) ||
+        !occupancy.some(o => Number(o?.numOfAdults) > 0)
+    ) {
+        throw new Error('Occupancy needs to be an array with at least 1 adult');
+    }
 
+    // Clone to ensure this function remains side-effect free
+    const clonedRatesJson = structuredClone(roomRatesJson);
 
-    const { rooms: ROOMS, rates: RATES, recommendations: RECOMMENDATIONS, standardizedRooms: STANDARD_ROOM_INFO } = ROOM_RATES_JSON_FINAL;
+    const {
+        rates: RATES,
+        recommendations: RECOMMENDATIONS
+    } = clonedRatesJson;
 
-    const usedRateCounter = new Map();
+    /**
+     * Tracks which occupancy indexes are already consumed
+     * Key format:
+     *   recommendationId~rateId~ratePosition
+     *
+     * WHY:
+     * - Same rate ID can appear multiple times in a recommendation
+     * - Each occurrence must consume a unique occupancy
+     */
+    const consumedOccupancyTracker = new Map();
 
-    const finalRoomRecommendation = new Map();
+    /**
+     * Final result structure:
+     * Map<occupancyIndex, Map<recommendation-rateKey, recommendationData>>
+     */
+    const recommendationResult = new Map();
 
-    occupancy.forEach((currentRequiredOccupancy, idx) => {
-
-        Object.values(RECOMMENDATIONS).filter((reccItem) => {
-            if (occupancyIndex !== idx) {
-                return true;
+    occupancy.forEach((requiredOccupancy, occIdx) => {
+        for (const recommendation of Object.values(RECOMMENDATIONS)) {
+            /**
+             * Filter recommendations when editing a specific occupancy
+             * Ensures previously selected rates remain present
+             */
+            if (
+                occIdx === occupancyIndex &&
+                previousSelectedRates &&
+                !Object.keys(previousSelectedRates).every(rateId =>
+                    recommendation.rates.includes(rateId)
+                )
+            ) {
+                continue;
             }
-            if (!previousSelectedRates) {
-                return true;
-            }
-            else {
-                const allRatesPresent = Object.keys(previousSelectedRates).every((rateKey) => reccItem.rates.includes(rateKey));
-                return allRatesPresent
-                // else {
-                //     const countMap = new Map();
-                //     for (let i = 0; i < reccItem.rates.length; i++) {
-                //         countMap.set(reccItem.rates[i], (countMap.get(reccItem.rates[i]) || 0) + 1)
-                //     }
-                //     return Object.entries(previousSelectedRates).every(([rateId, count]) => {
-                //         if (countMap.has(rateId)) {
-                //             const getRateCount = countMap.get(rateId);
-                //             if (getRateCount >= count) {
-                //                 return true;
-                //             }
-                //             return false
 
-                //         }
-                //         return false;
-                //     })
-                // }
+            let totalRecommendationPrice = 0;
+            let matchedRateIdForThisOccupancy = null;
 
-            }
+            for (let ratePos = 0; ratePos < recommendation.rates.length; ratePos++) {
+                const rateId = recommendation.rates[ratePos];
+                const rateData = RATES[rateId];
+                if (!rateData) continue;
 
+                // Accumulate price regardless of occupancy matching
+                totalRecommendationPrice += Number(rateData.finalRate || 0);
 
-        }).forEach((reccomendationItem) => {
+                const trackerKey = `${recommendation.id}~${rateId}~${ratePos}`;
+                const alreadyUsedIndexes =
+                    consumedOccupancyTracker.get(trackerKey) || [];
 
-            let finalRateOfRecommendation = 0;
+                const matchedOccupancy = findMatchingOccupancy(
+                    requiredOccupancy,
+                    rateData.occupancies,
+                    alreadyUsedIndexes
+                );
 
-            const { id: reccomendationId, rates: ratesArr = [] } = reccomendationItem;
+                /**
+                 * First valid match wins for this occupancy
+                 * Remaining rates only contribute to pricing
+                 */
+                if (matchedOccupancy && !matchedRateIdForThisOccupancy) {
+                    const recommendationEntry = {
+                        rateId,
+                        reccomendationId: recommendation.id,
+                        roomId: matchedOccupancy.roomId,
+                        stdRoomId: matchedOccupancy.stdRoomId,
+                        finalRateOfRecommendation: totalRecommendationPrice
+                    };
 
-            let isFoundRateId = null;
+                    const occupancyMap =
+                        recommendationResult.get(occIdx) || new Map();
 
-            let currentOccupancyMatch = null;
+                    occupancyMap.set(
+                        `${recommendation.id}-${rateId}`,
+                        recommendationEntry
+                    );
 
-            ratesArr?.forEach((rateId, rateIdx) => {
-                const rateIdItem = RATES?.[rateId];
-                finalRateOfRecommendation += Number(rateIdItem?.finalRate || 0);
+                    recommendationResult.set(occIdx, occupancyMap);
 
-                // const isNotConsumedRateOcc = () => {
+                    consumedOccupancyTracker.set(trackerKey, [
+                        ...alreadyUsedIndexes,
+                        matchedOccupancy.idx
+                    ]);
 
-                //     if (usedRateCounter.has(`${reccomendationId}~${rateId}~${rateIdx}`)) {
-                //         console.log('coming hereee', `${reccomendationId}~${rateId}~${rateIdx}`)
-                //         const consumedRateOccList = usedRateCounter.get(`${reccomendationId}~${rateId}~${rateIdx}`);
-                //         if (consumedRateOccList.includes(getOccupancyMatchingData.idx)) {
-                //             return true;
-                //         }
-                //         return false;
-                //     }
-                //     return false;
-                // }
-
-
-                const getOccupancyMatchingData = hasMatchingOccupancy(currentRequiredOccupancy, rateIdItem?.occupancies, usedRateCounter.get(`${reccomendationId}~${rateId}~${rateIdx}`) || [], usedRateCounter);
-
-                const isOccupancyMatch = getOccupancyMatchingData
-
-
-                if (isOccupancyMatch && !currentOccupancyMatch) {
-                    if (finalRoomRecommendation.has(idx)) {
-                        const presentMapEntries = finalRoomRecommendation.get(idx);
-                        presentMapEntries.set(`${reccomendationId}-${rateId}`, { rateId, reccomendationId, roomId: getOccupancyMatchingData.roomId, stdRoomId: getOccupancyMatchingData.stdRoomId })
-                        finalRoomRecommendation.set(idx, presentMapEntries)
-                    }
-                    else {
-                        finalRoomRecommendation.set(idx, new Map([[`${reccomendationId}-${rateId}`, { rateId, reccomendationId, roomId: getOccupancyMatchingData.roomId, stdRoomId: getOccupancyMatchingData.stdRoomId }]]))
-
-                    }
-                    if (usedRateCounter.has(`${reccomendationId}~${rateId}~${rateIdx}`)) {
-                        usedRateCounter.set(`${reccomendationId}~${rateId}~${rateIdx}`, [...usedRateCounter.get(`${reccomendationId}~${rateId}~${rateIdx}`), getOccupancyMatchingData.idx])
-                    }
-                    else {
-                        usedRateCounter.set(`${reccomendationId}~${rateId}~${rateIdx}`, [getOccupancyMatchingData.idx])
-                    }
-                    isFoundRateId = rateId
-                    currentOccupancyMatch = true;
+                    matchedRateIdForThisOccupancy = rateId;
                 }
+            }
 
-            });
-
-            // console.log('usedRateCounterusedRateCounter', usedRateCounter)
-
-            if (!currentOccupancyMatch) {
-                console.log('this was the error', reccomendationItem, usedRateCounter)
+            // Strict failure: a recommendation must satisfy all occupancies
+            if (!matchedRateIdForThisOccupancy) {
                 throw new Error('There is a mismatch');
             }
-            else {
-                if (isFoundRateId) {
-                    const internalMap = finalRoomRecommendation.get(idx)
-                    internalMap.set(`${reccomendationId}-${isFoundRateId}`, { ...internalMap.get(`${reccomendationId}-${isFoundRateId}`), finalRateOfRecommendation })
-                }
-            }
+        }
+    });
 
-        });
+    /**
+     * Final sorting:
+     * 1. Sort by total recommendation price
+     * 2. Group by standardized room
+     * 3. Lexicographically compare price arrays per room
+     */
+    const sortedRecommendations = new Map(
+        [...recommendationResult].map(([occIdx, recMap]) => {
+            const groupedByStdRoom = new Map();
 
-    })
+            [...recMap.values()]
+                .sort(
+                    (a, b) =>
+                        a.finalRateOfRecommendation -
+                        b.finalRateOfRecommendation
+                )
+                .forEach(rec => {
+                    const list = groupedByStdRoom.get(rec.stdRoomId) || [];
+                    list.push(rec);
+                    groupedByStdRoom.set(rec.stdRoomId, list);
+                });
 
-    const sortedReccomendations = new Map(Array.from(finalRoomRecommendation).map(([key, map]) => {
-        const finalMap = new Map();
-        Array.from(map).sort(([, val1], [val2]) => {
-            return val1.finalRateOfRecommendation - val2.finalRateOfRecommendation
-        }).forEach(([key, value]) => {
-            if (finalMap.has(value.stdRoomId)) {
-                finalMap.set(value.stdRoomId, [...finalMap.get(value.stdRoomId), value]);
-            }
-            else {
-                finalMap.set(value.stdRoomId, [value]);
-            }
+            const sortedByRoom = new Map(
+                [...groupedByStdRoom.entries()].sort(([, a], [, b]) => {
+                    const minLen = Math.min(a.length, b.length);
+                    for (let i = 0; i < minLen; i++) {
+                        if (
+                            a[i].finalRateOfRecommendation !==
+                            b[i].finalRateOfRecommendation
+                        ) {
+                            return (
+                                a[i].finalRateOfRecommendation -
+                                b[i].finalRateOfRecommendation
+                            );
+                        }
+                    }
+                    return 0;
+                })
+            );
+
+            return [occIdx, sortedByRoom];
         })
-        const lastMap = new Map(Array.from(finalMap).sort(([key1, itemA], [key2, itemB]) => {
-            const minLen = Math.min(itemA.length, itemB.length)
+    );
 
-            for (let i = 0; i < minLen; i++) {
-                if (itemA[i].finalRateOfRecommendation < itemB[i].finalRateOfRecommendation) return -1;
-                if (itemA[i].finalRateOfRecommendation > itemB[i].finalRateOfRecommendation) return 1
+    return Object.fromEntries(sortedRecommendations);
+};
 
-            }
-            return 0;
-        }));
-        return [key, lastMap]
-    }))
 
-    console.log('usedRateCounterusedRateCounter', usedRateCounter)
 
-    return Object.fromEntries(sortedReccomendations)
+/**
+ * Sequential auto-selection wrapper.
+ *
+ * WHY THIS EXISTS:
+ * - Auto-select cheapest valid room per occupancy
+ * - Lock selected rates before moving to next occupancy
+ * - Produce a single renderable output
+ * - Safe to call inside useEffect
+ */
+export const autoSelectRoomRecommendations = ({
+    occupancy,
+    roomRatesJson,
+    onAutoSelectionDone
+  }) => {
+    let previousSelectedRates = {};
+    const finalRenderableResult = {};
+  
+    occupancy.forEach((_, occIdx) => {
+      const engineOutput = prepareRecommendationJson({
+        occupancy,
+        roomRatesJson,
+        previousSelectedRates,
+        occupancyIndex: occIdx
+      });
+  
+      const stdRoomMap = engineOutput[occIdx];
+  
+      // ✅ STORE FULL STRUCTURE (THIS WAS MISSING)
+      finalRenderableResult[occIdx] = stdRoomMap;
+  
+      // 🔒 ONLY use cheapest for locking
+      const [[, cheapestRoomArr]] = stdRoomMap.entries();
+      const cheapestSelection = cheapestRoomArr[0];
+  
+      previousSelectedRates = {
+        ...previousSelectedRates,
+        [cheapestSelection.rateId]:
+          (previousSelectedRates[cheapestSelection.rateId] || 0) + 1
+      };
+    });
+  
+    onAutoSelectionDone?.(finalRenderableResult);
+  };
+  
 
-}
+
