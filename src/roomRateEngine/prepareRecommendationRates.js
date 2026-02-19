@@ -1,6 +1,7 @@
 
-const hasMatchingOccupancy = (target, occupancies) => {
-    const isMatched = occupancies.find(({ numOfAdults, childAges, numOfChildren }) => {
+const hasMatchingOccupancy = (target, occupancies, skipList = [], rateCounter) => {
+    const isMatched = occupancies.findIndex(({ numOfAdults, childAges, numOfChildren }, idx) => {
+        if (skipList.includes(idx)) return false;
         if (Number(numOfAdults) !== Number(target.numOfAdults)) return false;
 
         const targetAges = target.childAges ?? [];
@@ -27,12 +28,18 @@ const hasMatchingOccupancy = (target, occupancies) => {
 
         return ageCount.size === 0;
     });
-    return isMatched;
+    if (isMatched !== -1) {
+        return {
+            ...occupancies[isMatched],
+            idx: isMatched
+        }
+    }
+    return null;
 };
 
 
 
-export const prepareRecommendationJson = ({ occupancy, roomRatesJson }) => {
+export const prepareRecommendationJson = ({ occupancy, roomRatesJson, previousSelectedRates = null, occupancyIndex = 0 }) => {
     if (!roomRatesJson || typeof roomRatesJson !== 'object') throw new Error('Please pass in proper roomRates json');
     const ROOM_RATES_JSON_FINAL = JSON.parse(JSON.stringify(roomRatesJson));
 
@@ -41,10 +48,45 @@ export const prepareRecommendationJson = ({ occupancy, roomRatesJson }) => {
 
     const { rooms: ROOMS, rates: RATES, recommendations: RECOMMENDATIONS, standardizedRooms: STANDARD_ROOM_INFO } = ROOM_RATES_JSON_FINAL;
 
+    const usedRateCounter = new Map();
+
     const finalRoomRecommendation = new Map();
 
     occupancy.forEach((currentRequiredOccupancy, idx) => {
-        Object.values(RECOMMENDATIONS).forEach((reccomendationItem) => {
+
+        Object.values(RECOMMENDATIONS).filter((reccItem) => {
+            if (occupancyIndex !== idx) {
+                return true;
+            }
+            if (!previousSelectedRates) {
+                return true;
+            }
+            else {
+                const allRatesPresent = Object.keys(previousSelectedRates).every((rateKey) => reccItem.rates.includes(rateKey));
+                return allRatesPresent
+                // else {
+                //     const countMap = new Map();
+                //     for (let i = 0; i < reccItem.rates.length; i++) {
+                //         countMap.set(reccItem.rates[i], (countMap.get(reccItem.rates[i]) || 0) + 1)
+                //     }
+                //     return Object.entries(previousSelectedRates).every(([rateId, count]) => {
+                //         if (countMap.has(rateId)) {
+                //             const getRateCount = countMap.get(rateId);
+                //             if (getRateCount >= count) {
+                //                 return true;
+                //             }
+                //             return false
+
+                //         }
+                //         return false;
+                //     })
+                // }
+
+            }
+
+
+        }).forEach((reccomendationItem) => {
+
             let finalRateOfRecommendation = 0;
 
             const { id: reccomendationId, rates: ratesArr = [] } = reccomendationItem;
@@ -53,20 +95,44 @@ export const prepareRecommendationJson = ({ occupancy, roomRatesJson }) => {
 
             let currentOccupancyMatch = null;
 
-            ratesArr?.forEach((rateId) => {
+            ratesArr?.forEach((rateId, rateIdx) => {
                 const rateIdItem = RATES?.[rateId];
                 finalRateOfRecommendation += Number(rateIdItem?.finalRate || 0);
 
-                const isOccupancyMatch = hasMatchingOccupancy(currentRequiredOccupancy, rateIdItem?.occupancies)
-                if (isOccupancyMatch) {
+                // const isNotConsumedRateOcc = () => {
+
+                //     if (usedRateCounter.has(`${reccomendationId}~${rateId}~${rateIdx}`)) {
+                //         console.log('coming hereee', `${reccomendationId}~${rateId}~${rateIdx}`)
+                //         const consumedRateOccList = usedRateCounter.get(`${reccomendationId}~${rateId}~${rateIdx}`);
+                //         if (consumedRateOccList.includes(getOccupancyMatchingData.idx)) {
+                //             return true;
+                //         }
+                //         return false;
+                //     }
+                //     return false;
+                // }
+
+
+                const getOccupancyMatchingData = hasMatchingOccupancy(currentRequiredOccupancy, rateIdItem?.occupancies, usedRateCounter.get(`${reccomendationId}~${rateId}~${rateIdx}`) || [], usedRateCounter);
+
+                const isOccupancyMatch = getOccupancyMatchingData
+
+
+                if (isOccupancyMatch && !currentOccupancyMatch) {
                     if (finalRoomRecommendation.has(idx)) {
                         const presentMapEntries = finalRoomRecommendation.get(idx);
-                        presentMapEntries.set(`${reccomendationId}-${rateId}`, { rateId, reccomendationId, roomId: isOccupancyMatch.roomId, stdRoomId: isOccupancyMatch.stdRoomId })
+                        presentMapEntries.set(`${reccomendationId}-${rateId}`, { rateId, reccomendationId, roomId: getOccupancyMatchingData.roomId, stdRoomId: getOccupancyMatchingData.stdRoomId })
                         finalRoomRecommendation.set(idx, presentMapEntries)
                     }
                     else {
-                        finalRoomRecommendation.set(idx, new Map([[`${reccomendationId}-${rateId}`, { rateId, reccomendationId, roomId: isOccupancyMatch.roomId, stdRoomId: isOccupancyMatch.stdRoomId }]]))
+                        finalRoomRecommendation.set(idx, new Map([[`${reccomendationId}-${rateId}`, { rateId, reccomendationId, roomId: getOccupancyMatchingData.roomId, stdRoomId: getOccupancyMatchingData.stdRoomId }]]))
 
+                    }
+                    if (usedRateCounter.has(`${reccomendationId}~${rateId}~${rateIdx}`)) {
+                        usedRateCounter.set(`${reccomendationId}~${rateId}~${rateIdx}`, [...usedRateCounter.get(`${reccomendationId}~${rateId}~${rateIdx}`), getOccupancyMatchingData.idx])
+                    }
+                    else {
+                        usedRateCounter.set(`${reccomendationId}~${rateId}~${rateIdx}`, [getOccupancyMatchingData.idx])
                     }
                     isFoundRateId = rateId
                     currentOccupancyMatch = true;
@@ -74,7 +140,10 @@ export const prepareRecommendationJson = ({ occupancy, roomRatesJson }) => {
 
             });
 
+            // console.log('usedRateCounterusedRateCounter', usedRateCounter)
+
             if (!currentOccupancyMatch) {
+                console.log('this was the error', reccomendationItem, usedRateCounter)
                 throw new Error('There is a mismatch');
             }
             else {
@@ -93,7 +162,6 @@ export const prepareRecommendationJson = ({ occupancy, roomRatesJson }) => {
         Array.from(map).sort(([, val1], [val2]) => {
             return val1.finalRateOfRecommendation - val2.finalRateOfRecommendation
         }).forEach(([key, value]) => {
-            console.log('valuevaluevalue', value)
             if (finalMap.has(value.stdRoomId)) {
                 finalMap.set(value.stdRoomId, [...finalMap.get(value.stdRoomId), value]);
             }
@@ -101,8 +169,20 @@ export const prepareRecommendationJson = ({ occupancy, roomRatesJson }) => {
                 finalMap.set(value.stdRoomId, [value]);
             }
         })
-        return [key, finalMap]
+        const lastMap = new Map(Array.from(finalMap).sort(([key1, itemA], [key2, itemB]) => {
+            const minLen = Math.min(itemA.length, itemB.length)
+
+            for (let i = 0; i < minLen; i++) {
+                if (itemA[i].finalRateOfRecommendation < itemB[i].finalRateOfRecommendation) return -1;
+                if (itemA[i].finalRateOfRecommendation > itemB[i].finalRateOfRecommendation) return 1
+
+            }
+            return 0;
+        }));
+        return [key, lastMap]
     }))
+
+    console.log('usedRateCounterusedRateCounter', usedRateCounter)
 
     return Object.fromEntries(sortedReccomendations)
 
