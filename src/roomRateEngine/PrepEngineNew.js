@@ -236,3 +236,18 @@ export const autoSelectRoomRecommendations = ({
 
   onAutoSelectionDone?.(finalRenderableResult);
 };
+
+export const getFinalSelectedRecommendation = (
+  selectedRoomsAndRates,
+  recommendationObj,
+) => {
+  const allRatesIdSelected = selectedRoomsAndRates?.map((i) => i?.rateId);
+  const finalSelectedRecommendation =
+    selectedRoomsAndRates[selectedRoomsAndRates.length - 1]?.reccomendationId;
+
+  const isValidSelection = recommendationObj?.[
+    finalSelectedRecommendation
+  ]?.rates?.every((rateId) => allRatesIdSelected.includes(rateId));
+
+  return isValidSelection;
+};
