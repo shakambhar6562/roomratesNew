@@ -211,6 +211,11 @@ export const autoSelectRoomRecommendations = ({
   roomRatesJson,
   onAutoSelectionDone,
 }) => {
+  console.log("Thasidasdasd", {
+    occupancy,
+    roomRatesJson,
+    onAutoSelectionDone,
+  });
   const finalRenderableResult = {};
   let lockedRates = {};
 

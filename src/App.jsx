@@ -27,19 +27,207 @@ function App() {
   const [roomData, setRoomData] = useState(null);
   const [activeRoomIndex, setActiveRoomIndex] = useState(0);
   const [selectedByRoomIndex, setSelectedByRoomIndex] = useState({});
+  const [roomratesJson, setUploadedRateJson] = useState(null);
+  const [roomOccupancyData, setRoomOccupancyData] = useState([
+    {
+      numberOfAdults: 2,
+      childCount: 0,
+      childAges: [],
+    },
+  ]);
+
+  const [typeOfRate, setTypeOfRate] = useState("combo");
+
+  const handleChange = (value, type, idx, childIdx) => {
+    const newRoomOccupancyData = [...roomOccupancyData];
+    if (type === "childAges") {
+      const finalVal = Number(value);
+      newRoomOccupancyData[idx][type][childIdx] = finalVal;
+      newRoomOccupancyData[idx].childCount =
+        newRoomOccupancyData[idx].childAges.length;
+    } else if (type === "childCount") {
+      newRoomOccupancyData[idx].childCount = Number(value);
+      const newChildAgesToBeadded =
+        Number(value) - newRoomOccupancyData[idx].childAges.length;
+      if (newChildAgesToBeadded < 0) {
+        newRoomOccupancyData[idx].childAges = newRoomOccupancyData[
+          idx
+        ].childAges.slice(
+          0,
+          newRoomOccupancyData[idx].childAges.length + newChildAgesToBeadded,
+        );
+      } else {
+        newRoomOccupancyData[idx].childAges = [
+          ...newRoomOccupancyData[idx].childAges,
+          ...Array.from({ length: newChildAgesToBeadded }, (_, i) => i + 1),
+        ];
+      }
+    } else {
+      newRoomOccupancyData[idx][type] = Number(value);
+    }
+    setRoomOccupancyData(newRoomOccupancyData);
+  };
+
+  console.log("roomOccupancyData", roomOccupancyData, roomratesJson);
 
   // 🔁 Initial auto-selection
   useEffect(() => {
+    if (!roomratesJson) return;
     autoSelectRoomRecommendations({
-      occupancy: OCCUPANCY,
-      roomRatesJson: RATE_CASES.combo,
+      occupancy: roomOccupancyData,
+      roomRatesJson: roomratesJson,
       onAutoSelectionDone: setRoomData,
     });
-  }, []);
+  }, [roomOccupancyData, roomratesJson]);
+
+  if (!roomratesJson) {
+    return (
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          gap: "40px",
+        }}
+      >
+        {roomOccupancyData?.map((occItem, idx) => {
+          return (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  gap: "20px",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "4px",
+                  }}
+                >
+                  <label htmlFor="adults">Adults</label>
+                  <input
+                    onChange={(e) =>
+                      handleChange(e.target.value, "numOfAdults", idx)
+                    }
+                    name="numOfAdults"
+                    style={{ width: "200px", height: "20px" }}
+                    type="text"
+                  />
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "4px",
+                  }}
+                >
+                  <label htmlFor="Childs">Number Of Children</label>
+                  <input
+                    onChange={(e) =>
+                      handleChange(e.target.value, "childCount", idx)
+                    }
+                    name="childCount"
+                    style={{ width: "200px", height: "20px" }}
+                    type="text"
+                  />
+                </div>
+                {idx === 0 && (
+                  <button
+                    style={{
+                      marginTop: "20px",
+                      width: "150px",
+                      height: "40px",
+                      background: "white",
+                      color: "black",
+                    }}
+                    onClick={() =>
+                      setRoomOccupancyData((prev) => [
+                        ...prev,
+                        { numberOfAdults: 2, childCount: 0, childAges: [] },
+                      ])
+                    }
+                  >
+                    + Add
+                  </button>
+                )}
+              </div>
+              <div style={{ display: "flex", gap: "20px" }}>
+                {occItem.childAges.map((_, childIdx) => {
+                  return (
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "4px",
+                      }}
+                    >
+                      <label htmlFor="childAge">{`Age ${childIdx}`}</label>
+                      <input
+                        onChange={(e) =>
+                          handleChange(
+                            e.target.value,
+                            "childAges",
+                            idx,
+                            childIdx,
+                          )
+                        }
+                        name="childAge"
+                        style={{ width: "200px" }}
+                        type="text"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+
+        <label>Type of Rate</label>
+
+        <select
+          value={typeOfRate}
+          onChange={(e) => setTypeOfRate(e.target.value)}
+        >
+          <option value="combo">Combo</option>
+          <option value="unique">Unique</option>
+          <option value="duplicate">Duplicate</option>
+          <option value="hybrid">Hybrid</option>
+        </select>
+
+        <input
+          type="file"
+          accept=".json"
+          onChange={(e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+              try {
+                setUploadedRateJson(JSON.parse(ev.target.result));
+              } catch {
+                alert("Invalid JSON");
+              }
+            };
+            reader.readAsText(file);
+          }}
+        />
+      </div>
+    );
+  }
 
   if (!roomData) return null;
 
-  const activeStandardRoomMap = roomData[activeRoomIndex];
+  const activeStandardRoomMap = roomData?.[activeRoomIndex];
 
   // 🔒 Engine guarantee: cheapest = first std room → first item
   const [[, cheapestRoomList]] = activeStandardRoomMap.entries();
