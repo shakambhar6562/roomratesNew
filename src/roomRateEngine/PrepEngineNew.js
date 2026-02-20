@@ -163,7 +163,7 @@ export const prepareRecommendationForOccupancy = ({
     }
 
     if (!matchedRateId) {
-      throw new Error("There is a mismatch");
+      throw new Error("There is a mismatch in the reccomendation rates");
     }
   }
 
