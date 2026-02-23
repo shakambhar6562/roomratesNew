@@ -5,23 +5,12 @@ import comboRate from "./roomRateEngine/RatesJson/comboRate.json";
 import uniqueRate from "./roomRateEngine/RatesJson/unique.json";
 import hybridRate from "./roomRateEngine/RatesJson/hybridRate.json";
 import duplicateRate from "./roomRateEngine/RatesJson/duplicateRate.json";
+
 import {
   autoSelectRoomRecommendations,
+  getFinalSelectedRecommendation,
   prepareRecommendationForOccupancy,
 } from "./roomRateEngine/PrepEngineNew";
-
-const RATE_CASES = {
-  combo: comboRate,
-  duplicate: duplicateRate,
-  unique: uniqueRate,
-  hybrid: hybridRate,
-};
-
-const OCCUPANCY = [
-  { numOfAdults: 2, childAges: [] },
-  { numOfAdults: 2, childAges: [] },
-  { numOfAdults: 2, childAges: [] },
-];
 
 function App() {
   const [roomData, setRoomData] = useState(null);
@@ -35,6 +24,8 @@ function App() {
       childAges: [],
     },
   ]);
+
+  console.log("activeRoomIndex", activeRoomIndex);
 
   const [typeOfRate, setTypeOfRate] = useState("combo");
 
@@ -68,15 +59,30 @@ function App() {
     setRoomOccupancyData(newRoomOccupancyData);
   };
 
-  console.log("roomOccupancyData", roomOccupancyData, roomratesJson);
-
   // 🔁 Initial auto-selection
   useEffect(() => {
     if (!roomratesJson) return;
     autoSelectRoomRecommendations({
       occupancy: roomOccupancyData,
       roomRatesJson: roomratesJson,
-      onAutoSelectionDone: setRoomData,
+      onAutoSelectionDone: (finalRoomData) => {
+        setRoomData(finalRoomData);
+
+        const finalSelectedRoomIndex = Object.entries(finalRoomData)?.reduce(
+          (prev, curr, idx) => {
+            const [, stdRoomMap] = curr;
+            const [[, cheapestRoomList]] = Array.from(stdRoomMap.entries());
+            const cheaperstRoom = cheapestRoomList[0];
+
+            prev[idx] = cheaperstRoom;
+            return prev;
+          },
+          {},
+        );
+        console.log("finalRoomData", finalRoomData, finalSelectedRoomIndex);
+
+        setSelectedByRoomIndex(finalSelectedRoomIndex);
+      },
     });
   }, [roomOccupancyData, roomratesJson]);
 
@@ -241,8 +247,18 @@ function App() {
    * - Jumps to next room
    */
   const handleManualSelect = (roomIndex, selectedRoom) => {
-    const newSelected = {
-      ...selectedByRoomIndex,
+    let newSelected = Object.entries(selectedByRoomIndex).reduce(
+      (prev, curr) => {
+        const [roomIdx, roomData] = curr;
+        if (Number(roomIdx) < roomIndex) {
+          prev[roomIdx] = roomData;
+        }
+        return prev;
+      },
+      {},
+    );
+    newSelected = {
+      ...newSelected,
       [roomIndex]: selectedRoom,
     };
 
@@ -256,12 +272,14 @@ function App() {
     let currentLockedRates = { ...lockedRates };
 
     // 🔁 Recompute only remaining rooms
-    for (let i = roomIndex + 1; i < OCCUPANCY.length; i++) {
+    for (let i = roomIndex + 1; i < roomOccupancyData.length; i++) {
       const stdRoomMap = prepareRecommendationForOccupancy({
-        occupancy: OCCUPANCY[i],
+        occupancy: roomOccupancyData[i],
         roomRatesJson: roomratesJson,
         lockedRates: currentLockedRates,
       });
+
+      console.log("stdRoomMapstdRoomMap", stdRoomMap);
 
       newRoomData[i] = stdRoomMap;
 
@@ -276,7 +294,7 @@ function App() {
     setRoomData(newRoomData);
 
     // 👉 Auto-jump to next room
-    if (roomIndex + 1 < OCCUPANCY.length) {
+    if (roomIndex + 1 < roomOccupancyData.length) {
       setActiveRoomIndex(roomIndex + 1);
     }
   };
@@ -380,6 +398,14 @@ function App() {
           </div>
         ),
       )}
+      <div>
+        Final Selected Recommendation:{" "}
+        {getFinalSelectedRecommendation({
+          occupancyData: roomOccupancyData,
+          recommendationObj: roomratesJson?.recommendations,
+          selectedRoomsAndRates: selectedByRoomIndex,
+        })?.finalSelectedRecommendation || "None"}
+      </div>
     </div>
   );
 }

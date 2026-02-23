@@ -211,11 +211,6 @@ export const autoSelectRoomRecommendations = ({
   roomRatesJson,
   onAutoSelectionDone,
 }) => {
-  console.log("Thasidasdasd", {
-    occupancy,
-    roomRatesJson,
-    onAutoSelectionDone,
-  });
   const finalRenderableResult = {};
   let lockedRates = {};
 
@@ -242,17 +237,28 @@ export const autoSelectRoomRecommendations = ({
   onAutoSelectionDone?.(finalRenderableResult);
 };
 
-export const getFinalSelectedRecommendation = (
+export const getFinalSelectedRecommendation = ({
   selectedRoomsAndRates,
   recommendationObj,
-) => {
-  const allRatesIdSelected = selectedRoomsAndRates?.map((i) => i?.rateId);
+  occupancyData,
+}) => {
+  console.log("this is the final recommendation test", {
+    selectedRoomsAndRates,
+    recommendationObj,
+    occupancyData,
+  });
+  if (Object.keys(selectedRoomsAndRates).length < occupancyData.length)
+    return "";
+
+  const allRatesIdSelected = Object.values(selectedRoomsAndRates)?.map(
+    (i) => i?.rateId,
+  );
   const finalSelectedRecommendation =
-    selectedRoomsAndRates[selectedRoomsAndRates.length - 1]?.reccomendationId;
+    selectedRoomsAndRates[occupancyData.length - 1]?.reccomendationId;
 
   const isValidSelection = recommendationObj?.[
     finalSelectedRecommendation
   ]?.rates?.every((rateId) => allRatesIdSelected.includes(rateId));
 
-  return isValidSelection;
+  return { isValidSelection, finalSelectedRecommendation };
 };
