@@ -259,7 +259,7 @@ function App() {
     for (let i = roomIndex + 1; i < OCCUPANCY.length; i++) {
       const stdRoomMap = prepareRecommendationForOccupancy({
         occupancy: OCCUPANCY[i],
-        roomRatesJson: RATE_CASES.combo,
+        roomRatesJson: roomratesJson,
         lockedRates: currentLockedRates,
       });
 
