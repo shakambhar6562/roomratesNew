@@ -1,16 +1,108 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import {
+  Box,
+  Container,
+  Typography,
+  TextField,
+  Button,
+  Card,
+  CardContent,
+  Grid,
+  Paper,
+  Tabs,
+  Tab,
+  Chip,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Stack,
+  Divider,
+  Alert,
+  IconButton,
+  Tooltip,
+} from "@mui/material";
+import {
+  CloudUpload as CloudUploadIcon,
+  Add as AddIcon,
+  CheckCircle as CheckCircleIcon,
+  RadioButtonUnchecked as RadioButtonUncheckedIcon,
+  Delete as DeleteIcon,
+} from "@mui/icons-material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
-import comboRate from "./roomRateEngine/RatesJson/comboRate.json";
-import uniqueRate from "./roomRateEngine/RatesJson/unique.json";
-import hybridRate from "./roomRateEngine/RatesJson/hybridRate.json";
-import duplicateRate from "./roomRateEngine/RatesJson/duplicateRate.json";
 
 import {
   autoSelectRoomRecommendations,
   getFinalSelectedRecommendation,
   prepareRecommendationForOccupancy,
 } from "./roomRateEngine/PrepEngineNew";
+
+// Create a beautiful, soothing theme
+const theme = createTheme({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#1976d2",
+      light: "#42a5f5",
+      dark: "#1565c0",
+    },
+    secondary: {
+      main: "#9c27b0",
+      light: "#ba68c8",
+      dark: "#7b1fa2",
+    },
+    background: {
+      default: "#f5f7fa",
+      paper: "#ffffff",
+    },
+    success: {
+      main: "#2e7d32",
+      light: "#4caf50",
+    },
+    warning: {
+      main: "#ed6c02",
+    },
+  },
+  typography: {
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    h4: {
+      fontWeight: 600,
+    },
+    h5: {
+      fontWeight: 600,
+    },
+    h6: {
+      fontWeight: 600,
+    },
+  },
+  shape: {
+    borderRadius: 12,
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+          transition: "all 0.3s ease",
+          "&:hover": {
+            boxShadow: "0 4px 16px rgba(0,0,0,0.15)",
+          },
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+          borderRadius: 8,
+          padding: "10px 24px",
+        },
+      },
+    },
+  },
+});
 
 function App() {
   const [roomData, setRoomData] = useState(null);
@@ -24,8 +116,6 @@ function App() {
       childAges: [],
     },
   ]);
-
-  console.log("activeRoomIndex", activeRoomIndex);
 
   const [typeOfRate, setTypeOfRate] = useState("combo");
 
@@ -59,11 +149,30 @@ function App() {
     setRoomOccupancyData(newRoomOccupancyData);
   };
 
+  const handleRemoveRoom = (idx) => {
+    if (roomOccupancyData.length > 1) {
+      const newData = roomOccupancyData.filter((_, i) => i !== idx);
+      setRoomOccupancyData(newData);
+      if (activeRoomIndex >= newData.length) {
+        setActiveRoomIndex(newData.length - 1);
+      }
+    }
+  };
+
+  // Transform occupancy data to engine format (numberOfAdults -> numOfAdults)
+  const transformOccupancyForEngine = (occupancyData) => {
+    return occupancyData.map((occ) => ({
+      numOfAdults: occ.numberOfAdults,
+      childCount: occ.childCount,
+      childAges: occ.childAges,
+    }));
+  };
+
   // 🔁 Initial auto-selection
   useEffect(() => {
     if (!roomratesJson) return;
     autoSelectRoomRecommendations({
-      occupancy: roomOccupancyData,
+      occupancy: transformOccupancyForEngine(roomOccupancyData),
       roomRatesJson: roomratesJson,
       onAutoSelectionDone: (finalRoomData) => {
         setRoomData(finalRoomData);
@@ -79,155 +188,192 @@ function App() {
           },
           {},
         );
-        console.log("finalRoomData", finalRoomData, finalSelectedRoomIndex);
 
         setSelectedByRoomIndex(finalSelectedRoomIndex);
       },
     });
   }, [roomOccupancyData, roomratesJson]);
 
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        setUploadedRateJson(JSON.parse(ev.target.result));
+      } catch {
+        alert("Invalid JSON file. Please upload a valid JSON file.");
+      }
+    };
+    reader.readAsText(file);
+  };
+
+  // Initial form view (before JSON upload)
   if (!roomratesJson) {
     return (
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          gap: "40px",
-        }}
-      >
-        {roomOccupancyData?.map((occItem, idx) => {
-          return (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "20px",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  gap: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "4px",
-                  }}
-                >
-                  <label htmlFor="adults">Adults</label>
-                  <input
-                    onChange={(e) =>
-                      handleChange(e.target.value, "numOfAdults", idx)
-                    }
-                    name="numOfAdults"
-                    style={{ width: "200px", height: "20px" }}
-                    type="text"
-                  />
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "4px",
-                  }}
-                >
-                  <label htmlFor="Childs">Number Of Children</label>
-                  <input
-                    onChange={(e) =>
-                      handleChange(e.target.value, "childCount", idx)
-                    }
-                    name="childCount"
-                    style={{ width: "200px", height: "20px" }}
-                    type="text"
-                  />
-                </div>
-                {idx === 0 && (
-                  <button
-                    style={{
-                      marginTop: "20px",
-                      width: "150px",
-                      height: "40px",
-                      background: "white",
-                      color: "black",
-                    }}
-                    onClick={() =>
-                      setRoomOccupancyData((prev) => [
-                        ...prev,
-                        { numberOfAdults: 2, childCount: 0, childAges: [] },
-                      ])
-                    }
-                  >
-                    + Add
-                  </button>
-                )}
-              </div>
-              <div style={{ display: "flex", gap: "20px" }}>
-                {occItem.childAges.map((_, childIdx) => {
-                  return (
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "4px",
-                      }}
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Paper elevation={0} sx={{ p: 4, borderRadius: 3 }}>
+            <Typography variant="h4" gutterBottom sx={{ mb: 4, color: "primary.main" }}>
+              Room Rate Configuration
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+              Configure your room occupancy and upload rate data to get started
+            </Typography>
+
+            <Stack spacing={4}>
+              {roomOccupancyData?.map((occItem, idx) => {
+                return (
+                  <Card key={idx} variant="outlined" sx={{ p: 3 }}>
+                    <Box
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                      mb={2}
                     >
-                      <label htmlFor="childAge">{`Age ${childIdx}`}</label>
-                      <input
-                        onChange={(e) =>
-                          handleChange(
-                            e.target.value,
-                            "childAges",
-                            idx,
-                            childIdx,
-                          )
-                        }
-                        name="childAge"
-                        style={{ width: "200px" }}
-                        type="text"
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
+                      <Typography variant="h6" color="primary">
+                        Room {idx + 1}
+                      </Typography>
+                      {roomOccupancyData.length > 1 && (
+                        <IconButton
+                          color="error"
+                          size="small"
+                          onClick={() => handleRemoveRoom(idx)}
+                        >
+                          <DeleteIcon />
+                        </IconButton>
+                      )}
+                    </Box>
 
-        <label>Type of Rate</label>
+                    <Grid container spacing={3} sx={{ mb: 2 }}>
+                      <Grid item xs={12} sm={6}>
+                        <TextField
+                          fullWidth
+                          label="Number of Adults"
+                          type="number"
+                          value={occItem.numberOfAdults || ""}
+                          onChange={(e) =>
+                            handleChange(e.target.value, "numberOfAdults", idx)
+                          }
+                          inputProps={{ min: 1 }}
+                          variant="outlined"
+                        />
+                      </Grid>
+                      <Grid item xs={12} sm={6}>
+                        <TextField
+                          fullWidth
+                          label="Number of Children"
+                          type="number"
+                          value={occItem.childCount || ""}
+                          onChange={(e) =>
+                            handleChange(e.target.value, "childCount", idx)
+                          }
+                          inputProps={{ min: 0 }}
+                          variant="outlined"
+                        />
+                      </Grid>
+                    </Grid>
 
-        <select
-          value={typeOfRate}
-          onChange={(e) => setTypeOfRate(e.target.value)}
-        >
-          <option value="combo">Combo</option>
-          <option value="unique">Unique</option>
-          <option value="duplicate">Duplicate</option>
-          <option value="hybrid">Hybrid</option>
-        </select>
+                    {occItem.childAges.length > 0 && (
+                      <Box>
+                        <Typography variant="subtitle2" color="text.secondary" sx={{ mb: 1 }}>
+                          Children Ages
+                        </Typography>
+                        <Grid container spacing={2}>
+                          {occItem.childAges.map((_, childIdx) => {
+                            return (
+                              <Grid item xs={12} sm={6} md={4} key={childIdx}>
+                                <TextField
+                                  fullWidth
+                                  label={`Child ${childIdx + 1} Age`}
+                                  type="number"
+                                  value={occItem.childAges[childIdx] || ""}
+                                  onChange={(e) =>
+                                    handleChange(
+                                      e.target.value,
+                                      "childAges",
+                                      idx,
+                                      childIdx,
+                                    )
+                                  }
+                                  inputProps={{ min: 0, max: 17 }}
+                                  variant="outlined"
+                                  size="small"
+                                />
+                              </Grid>
+                            );
+                          })}
+                        </Grid>
+                      </Box>
+                    )}
 
-        <input
-          type="file"
-          accept=".json"
-          onChange={(e) => {
-            const file = e.target.files[0];
-            if (!file) return;
+                    {idx === roomOccupancyData.length - 1 && (
+                      <Box mt={3}>
+                        <Button
+                          variant="outlined"
+                          startIcon={<AddIcon />}
+                          onClick={() =>
+                            setRoomOccupancyData((prev) => [
+                              ...prev,
+                              { numberOfAdults: 2, childCount: 0, childAges: [] },
+                            ])
+                          }
+                        >
+                          Add Another Room
+                        </Button>
+                      </Box>
+                    )}
+                  </Card>
+                );
+              })}
 
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-              try {
-                setUploadedRateJson(JSON.parse(ev.target.result));
-              } catch {
-                alert("Invalid JSON");
-              }
-            };
-            reader.readAsText(file);
-          }}
-        />
-      </div>
+              <Divider />
+
+              <Box>
+                <FormControl fullWidth sx={{ mb: 3 }}>
+                  <InputLabel>Type of Rate</InputLabel>
+                  <Select
+                    value={typeOfRate}
+                    label="Type of Rate"
+                    onChange={(e) => setTypeOfRate(e.target.value)}
+                  >
+                    <MenuItem value="combo">Combo</MenuItem>
+                    <MenuItem value="unique">Unique</MenuItem>
+                    <MenuItem value="duplicate">Duplicate</MenuItem>
+                    <MenuItem value="hybrid">Hybrid</MenuItem>
+                  </Select>
+                </FormControl>
+
+                <Card variant="outlined" sx={{ p: 3, bgcolor: "background.default" }}>
+                  <Typography variant="h6" gutterBottom>
+                    Upload Rate JSON File
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                    Please upload a valid JSON file containing room rate data
+                  </Typography>
+                  <Button
+                    variant="contained"
+                    component="label"
+                    startIcon={<CloudUploadIcon />}
+                    fullWidth
+                    sx={{ py: 1.5 }}
+                  >
+                    Choose JSON File
+                    <input
+                      type="file"
+                      accept=".json"
+                      hidden
+                      onChange={handleFileUpload}
+                    />
+                  </Button>
+                </Card>
+              </Box>
+            </Stack>
+          </Paper>
+        </Container>
+      </ThemeProvider>
     );
   }
 
@@ -273,13 +419,16 @@ function App() {
 
     // 🔁 Recompute only remaining rooms
     for (let i = roomIndex + 1; i < roomOccupancyData.length; i++) {
+      const transformedOccupancy = {
+        numOfAdults: roomOccupancyData[i].numberOfAdults,
+        childCount: roomOccupancyData[i].childCount,
+        childAges: roomOccupancyData[i].childAges,
+      };
       const stdRoomMap = prepareRecommendationForOccupancy({
-        occupancy: roomOccupancyData[i],
+        occupancy: transformedOccupancy,
         roomRatesJson: roomratesJson,
         lockedRates: currentLockedRates,
       });
-
-      console.log("stdRoomMapstdRoomMap", stdRoomMap);
 
       newRoomData[i] = stdRoomMap;
 
@@ -299,114 +448,267 @@ function App() {
     }
   };
 
+  const finalRecommendation = getFinalSelectedRecommendation({
+    occupancyData: roomOccupancyData,
+    recommendationObj: roomratesJson?.recommendations,
+    selectedRoomsAndRates: selectedByRoomIndex,
+  });
+
   return (
-    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
-      <h2>Room Rate Engine – Debug View</h2>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{ display: "flex", minHeight: "100vh", bgcolor: "background.default" }}>
+        {/* Left Sidebar - Room Selection */}
+        <Paper
+          elevation={0}
+          sx={{
+            width: 320,
+            minHeight: "100vh",
+            borderRight: "1px solid",
+            borderColor: "divider",
+            p: 3,
+            bgcolor: "background.paper",
+          }}
+        >
+          <Typography variant="h5" gutterBottom sx={{ mb: 3, fontWeight: 600 }}>
+            Select Rooms
+          </Typography>
 
-      {/* -------- ROOM TABS -------- */}
-      <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
-        {Object.keys(roomData).map((idx) => (
-          <button
-            key={idx}
-            onClick={() => setActiveRoomIndex(Number(idx))}
-            style={{
-              padding: "8px 14px",
-              borderRadius: "6px",
-              border: "1px solid #555",
-              cursor: "pointer",
-              background:
-                Number(idx) === activeRoomIndex ? "#4caf50" : "#2a2a2a",
-              color: Number(idx) === activeRoomIndex ? "#000" : "#fff",
-            }}
-          >
-            Room {Number(idx) + 1}
-          </button>
-        ))}
-      </div>
+          <Stack spacing={2}>
+            {Object.keys(roomData).map((idx) => {
+              const roomIdx = Number(idx);
+              const isActive = roomIdx === activeRoomIndex;
+              const selectedRoom = selectedByRoomIndex[roomIdx];
+              const isSelected = !!selectedRoom;
 
-      {/* -------- ACTIVE ROOM -------- */}
-      {Array.from(activeStandardRoomMap.entries()).map(
-        ([stdRoomId, roomList]) => (
-          <div
-            key={stdRoomId}
-            style={{
-              marginBottom: "16px",
-              padding: "12px",
-              background: "#1e1e1e",
-              borderRadius: "6px",
-            }}
-          >
-            <h4 style={{ color: "#9cdcfe" }}>Standard Room {stdRoomId}</h4>
-
-            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-              {roomList.map((roomItem) => {
-                const key = `${roomItem.reccomendationId}-${roomItem.rateId}`;
-
-                const manualSelection = selectedByRoomIndex[activeRoomIndex];
-
-                const isManualSelected =
-                  manualSelection &&
-                  manualSelection.rateId === roomItem.rateId &&
-                  manualSelection.reccomendationId ===
-                    roomItem.reccomendationId;
-
-                const isAutoSelected = !manualSelection && key === cheapestKey;
-
-                return (
-                  <div
-                    key={key}
-                    onClick={() =>
-                      handleManualSelect(activeRoomIndex, roomItem)
-                    }
-                    style={{
-                      cursor: "pointer",
-                      border: isManualSelected
-                        ? "2px solid orange"
-                        : isAutoSelected
-                          ? "2px solid #4caf50"
-                          : "1px solid #666",
-                      padding: "10px",
-                      borderRadius: "6px",
-                      minWidth: "220px",
-                      background: isManualSelected
-                        ? "#3a2a00"
-                        : isAutoSelected
-                          ? "#102a10"
-                          : "#2a2a2a",
-                    }}
-                  >
-                    {isManualSelected && <p>🟧 Manually Selected</p>}
-                    {!isManualSelected && isAutoSelected && (
-                      <p>✅ Auto Selected</p>
+              return (
+                <Card
+                  key={idx}
+                  onClick={() => setActiveRoomIndex(roomIdx)}
+                  sx={{
+                    cursor: "pointer",
+                    border: isActive ? 2 : 1,
+                    borderColor: isActive ? "primary.main" : "divider",
+                    bgcolor: isActive ? "action.selected" : "background.paper",
+                    transition: "all 0.2s",
+                    "&:hover": {
+                      borderColor: "primary.main",
+                      transform: "translateY(-2px)",
+                      boxShadow: 3,
+                    },
+                  }}
+                >
+                  <CardContent sx={{ p: 2, "&:last-child": { pb: 2 } }}>
+                    <Box display="flex" justifyContent="space-between" alignItems="center">
+                      <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                        Room {roomIdx + 1}
+                      </Typography>
+                      {isSelected && (
+                        <CheckCircleIcon color="success" fontSize="small" />
+                      )}
+                    </Box>
+                    <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+                      {roomOccupancyData[roomIdx]?.numberOfAdults || 0} Adults
+                      {roomOccupancyData[roomIdx]?.childCount > 0 &&
+                        `, ${roomOccupancyData[roomIdx]?.childCount} Children`}
+                    </Typography>
+                    {selectedRoom && (
+                      <Box mt={1}>
+                        <Chip
+                          label={`₹${selectedRoom.finalRateOfRecommendation}`}
+                          size="small"
+                          color="primary"
+                          variant="outlined"
+                        />
+                      </Box>
                     )}
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </Stack>
 
-                    <p>
-                      <strong>Recommendation:</strong>{" "}
-                      {roomItem.reccomendationId}
-                    </p>
-                    <p>
-                      <strong>Rate ID:</strong> {roomItem.rateId}
-                    </p>
-                    <p>
-                      <strong>Total Price:</strong> ₹
-                      {roomItem.finalRateOfRecommendation}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ),
-      )}
-      <div>
-        Final Selected Recommendation:{" "}
-        {getFinalSelectedRecommendation({
-          occupancyData: roomOccupancyData,
-          recommendationObj: roomratesJson?.recommendations,
-          selectedRoomsAndRates: selectedByRoomIndex,
-        })?.finalSelectedRecommendation || "None"}
-      </div>
-    </div>
+          {finalRecommendation?.finalSelectedRecommendation && (
+            <Box mt={4}>
+              <Alert severity="success" sx={{ borderRadius: 2 }}>
+                <Typography variant="subtitle2" gutterBottom>
+                  Final Recommendation
+                </Typography>
+                <Typography variant="body2">
+                  {finalRecommendation.finalSelectedRecommendation}
+                </Typography>
+              </Alert>
+            </Box>
+          )}
+        </Paper>
+
+        {/* Right Panel - Room Options */}
+        <Box sx={{ flex: 1, p: 4, overflow: "auto" }}>
+          <Typography variant="h4" gutterBottom sx={{ mb: 1, fontWeight: 600 }}>
+            Room {activeRoomIndex + 1} - Available Options
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 4 }}>
+            Select a room option below. Options are grouped by standard room type.
+          </Typography>
+
+          <Stack spacing={3}>
+            {Array.from(activeStandardRoomMap.entries()).map(
+              ([stdRoomId, roomList]) => (
+                <Box key={stdRoomId}>
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{ mb: 2, color: "primary.main", fontWeight: 600 }}
+                  >
+                    Standard Room {stdRoomId}
+                  </Typography>
+
+                  <Grid container spacing={2}>
+                    {roomList.map((roomItem) => {
+                      const key = `${roomItem.reccomendationId}-${roomItem.rateId}`;
+
+                      const manualSelection = selectedByRoomIndex[activeRoomIndex];
+
+                      const isManualSelected =
+                        manualSelection &&
+                        manualSelection.rateId === roomItem.rateId &&
+                        manualSelection.reccomendationId ===
+                          roomItem.reccomendationId;
+
+                      const isAutoSelected = !manualSelection && key === cheapestKey;
+
+                      return (
+                        <Grid item xs={12} sm={6} md={4} key={key}>
+                          <Card
+                            onClick={() =>
+                              handleManualSelect(activeRoomIndex, roomItem)
+                            }
+                            sx={{
+                              cursor: "pointer",
+                              border: isManualSelected
+                                ? 2
+                                : isAutoSelected
+                                  ? 2
+                                  : 1,
+                              borderColor: isManualSelected
+                                ? "warning.main"
+                                : isAutoSelected
+                                  ? "success.main"
+                                  : "divider",
+                              bgcolor: isManualSelected
+                                ? "action.selected"
+                                : isAutoSelected
+                                  ? "action.selected"
+                                  : "background.paper",
+                              transition: "all 0.2s",
+                              "&:hover": {
+                                transform: "translateY(-4px)",
+                                boxShadow: 4,
+                                borderColor: isManualSelected
+                                  ? "warning.main"
+                                  : isAutoSelected
+                                    ? "success.main"
+                                    : "primary.main",
+                              },
+                              height: "100%",
+                            }}
+                          >
+                            <CardContent>
+                              <Box
+                                display="flex"
+                                justifyContent="space-between"
+                                alignItems="flex-start"
+                                mb={1}
+                              >
+                                {isManualSelected && (
+                                  <Chip
+                                    icon={<CheckCircleIcon />}
+                                    label="Selected"
+                                    color="warning"
+                                    size="small"
+                                    sx={{ fontWeight: 600 }}
+                                  />
+                                )}
+                                {!isManualSelected && isAutoSelected && (
+                                  <Chip
+                                    icon={<CheckCircleIcon />}
+                                    label="Auto Selected"
+                                    color="success"
+                                    size="small"
+                                    sx={{ fontWeight: 600 }}
+                                  />
+                                )}
+                                {!isManualSelected && !isAutoSelected && (
+                                  <Chip
+                                    icon={<RadioButtonUncheckedIcon />}
+                                    label="Available"
+                                    variant="outlined"
+                                    size="small"
+                                  />
+                                )}
+                              </Box>
+
+                              <Divider sx={{ my: 1.5 }} />
+
+                              <Stack spacing={1}>
+                                <Box>
+                                  <Typography
+                                    variant="caption"
+                                    color="text.secondary"
+                                    display="block"
+                                  >
+                                    Recommendation ID
+                                  </Typography>
+                                  <Typography variant="body2" fontWeight={600}>
+                                    {roomItem.reccomendationId}
+                                  </Typography>
+                                </Box>
+
+                                <Box>
+                                  <Typography
+                                    variant="caption"
+                                    color="text.secondary"
+                                    display="block"
+                                  >
+                                    Rate ID
+                                  </Typography>
+                                  <Typography variant="body2" fontWeight={600}>
+                                    {roomItem.rateId}
+                                  </Typography>
+                                </Box>
+
+                                <Divider />
+
+                                <Box>
+                                  <Typography
+                                    variant="caption"
+                                    color="text.secondary"
+                                    display="block"
+                                  >
+                                    Total Price
+                                  </Typography>
+                                  <Typography
+                                    variant="h5"
+                                    color="primary"
+                                    fontWeight={700}
+                                  >
+                                    ₹{roomItem.finalRateOfRecommendation}
+                                  </Typography>
+                                </Box>
+                              </Stack>
+                            </CardContent>
+                          </Card>
+                        </Grid>
+                      );
+                    })}
+                  </Grid>
+                </Box>
+              ),
+            )}
+          </Stack>
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
 }
 
