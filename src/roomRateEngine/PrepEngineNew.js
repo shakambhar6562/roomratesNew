@@ -108,7 +108,7 @@ export const prepareRecommendationForOccupancy = ({
     throw new Error("Invalid occupancy");
   }
 
-  const clonedRatesJson = structuredClone(roomRatesJson);
+  const clonedRatesJson = JSON.parse(JSON.stringify(roomRatesJson));
   const { rates: RATES, recommendations: RECOMMENDATIONS } = clonedRatesJson;
 
   const consumedOccupancyTracker = new Map();
@@ -165,6 +165,11 @@ export const prepareRecommendationForOccupancy = ({
     if (!matchedRateId) {
       throw new Error("There is a mismatch in the reccomendation rates");
     }
+
+    recommendationMap.set(`${recommendation.id}-${matchedRateId}`, {
+      ...recommendationMap.get(`${recommendation.id}-${matchedRateId}`),
+      finalRateOfRecommendation: totalRecommendationPrice,
+    });
   }
 
   /**
@@ -242,11 +247,6 @@ export const getFinalSelectedRecommendation = ({
   recommendationObj,
   occupancyData,
 }) => {
-  console.log("this is the final recommendation test", {
-    selectedRoomsAndRates,
-    recommendationObj,
-    occupancyData,
-  });
   if (Object.keys(selectedRoomsAndRates).length < occupancyData.length)
     return "";
 
