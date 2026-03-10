@@ -21,6 +21,8 @@ import {
   Alert,
   IconButton,
   Tooltip,
+  Backdrop,
+  CircularProgress,
 } from "@mui/material";
 import {
   CloudUpload as CloudUploadIcon,
@@ -28,6 +30,8 @@ import {
   CheckCircle as CheckCircleIcon,
   RadioButtonUnchecked as RadioButtonUncheckedIcon,
   Delete as DeleteIcon,
+  Person as PersonIcon,
+  ChildCare as ChildCareIcon,
 } from "@mui/icons-material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -109,6 +113,7 @@ function App() {
   const [activeRoomIndex, setActiveRoomIndex] = useState(0);
   const [selectedByRoomIndex, setSelectedByRoomIndex] = useState({});
   const [roomratesJson, setUploadedRateJson] = useState(null);
+  const [isProcessing, setIsProcessing] = useState(false);
   const [roomOccupancyData, setRoomOccupancyData] = useState([
     {
       numberOfAdults: 2,
@@ -118,6 +123,8 @@ function App() {
   ]);
 
   const [typeOfRate, setTypeOfRate] = useState("combo");
+
+  console.log('roomratesJson',{ roomratesJson, roomOccupancyData})
 
   const handleChange = (value, type, idx, childIdx) => {
     const newRoomOccupancyData = [...roomOccupancyData];
@@ -171,27 +178,42 @@ function App() {
   // 🔁 Initial auto-selection
   useEffect(() => {
     if (!roomratesJson) return;
-    autoSelectRoomRecommendations({
-      occupancy: transformOccupancyForEngine(roomOccupancyData),
-      roomRatesJson: roomratesJson,
-      onAutoSelectionDone: (finalRoomData) => {
-        setRoomData(finalRoomData);
+    
+    setIsProcessing(true);
+    
+    // Use setTimeout to ensure UI updates before heavy processing
+  let timer = setTimeout(() => {
+      try {
+        autoSelectRoomRecommendations({
+          occupancy: transformOccupancyForEngine(roomOccupancyData),
+          roomRatesJson: roomratesJson,
+          onAutoSelectionDone: (finalRoomData) => {
+            setRoomData(finalRoomData);
 
-        const finalSelectedRoomIndex = Object.entries(finalRoomData)?.reduce(
-          (prev, curr, idx) => {
-            const [, stdRoomMap] = curr;
-            const [[, cheapestRoomList]] = Array.from(stdRoomMap.entries());
-            const cheaperstRoom = cheapestRoomList[0];
+            const finalSelectedRoomIndex = Object.entries(finalRoomData)?.reduce(
+              (prev, curr, idx) => {
+                const [, stdRoomMap] = curr;
+                const [[, cheapestRoomList]] = Array.from(stdRoomMap.entries());
+                const cheaperstRoom = cheapestRoomList[0];
 
-            prev[idx] = cheaperstRoom;
-            return prev;
+                prev[idx] = cheaperstRoom;
+                return prev;
+              },
+              {},
+            );
+
+            setSelectedByRoomIndex(finalSelectedRoomIndex);
+            setIsProcessing(false);
           },
-          {},
-        );
+        });
+      } catch (error) {
+        console.error("Error processing room rates:", error);
+        setIsProcessing(false);
+        alert("Error processing room rates. Please check the console for details.");
+      }
+    }, 100);
 
-        setSelectedByRoomIndex(finalSelectedRoomIndex);
-      },
-    });
+    return () => clearTimeout(timer);
   }, [roomOccupancyData, roomratesJson]);
 
   const handleFileUpload = (event) => {
@@ -377,7 +399,31 @@ function App() {
     );
   }
 
-  if (!roomData) return null;
+  if (!roomData) {
+    return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Backdrop
+          sx={{ 
+            color: "#fff", 
+            zIndex: (theme) => theme.zIndex.drawer + 1,
+            bgcolor: "rgba(0, 0, 0, 0.7)"
+          }}
+          open={isProcessing}
+        >
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
+            <CircularProgress color="inherit" size={60} />
+            <Typography variant="h6" sx={{ fontWeight: 600, color: "#fff" }}>
+              Processing Room Rates...
+            </Typography>
+            <Typography variant="body2" sx={{ color: "rgba(255, 255, 255, 0.8)" }}>
+              Please wait while we analyze and prepare room recommendations
+            </Typography>
+          </Box>
+        </Backdrop>
+      </ThemeProvider>
+    );
+  }
 
   const activeStandardRoomMap = roomData?.[activeRoomIndex];
 
@@ -457,24 +503,51 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ display: "flex", minHeight: "100vh", bgcolor: "background.default" }}>
+      <Backdrop
+        sx={{ 
+          color: "#fff", 
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          bgcolor: "rgba(0, 0, 0, 0.7)"
+        }}
+        open={isProcessing}
+      >
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
+          <CircularProgress color="inherit" size={60} />
+          <Typography variant="h6" sx={{ fontWeight: 600, color: "#fff" }}>
+            Processing Room Rates...
+          </Typography>
+          <Typography variant="body2" sx={{ color: "rgba(255, 255, 255, 0.8)" }}>
+            Please wait while we analyze and prepare room recommendations
+          </Typography>
+        </Box>
+      </Backdrop>
+      <Box sx={{ display: "flex", height: "100vh", overflow: "hidden", bgcolor: "background.default" }}>
         {/* Left Sidebar - Room Selection */}
         <Paper
           elevation={0}
           sx={{
             width: 320,
-            minHeight: "100vh",
+            height: "100vh",
             borderRight: "1px solid",
             borderColor: "divider",
-            p: 3,
             bgcolor: "background.paper",
+            overflow: "hidden",
+            position: "fixed",
+            left: 0,
+            top: 0,
+            zIndex: 1,
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          <Typography variant="h5" gutterBottom sx={{ mb: 3, fontWeight: 600 }}>
-            Select Rooms
-          </Typography>
-
-          <Stack spacing={2}>
+          <Box sx={{ p: 3, pb: 2 }}>
+            <Typography variant="h5" gutterBottom sx={{ mb: 0, fontWeight: 600 }}>
+              Select Rooms
+            </Typography>
+          </Box>
+          
+          <Box sx={{ flex: 1, overflowY: "auto", px: 3, pb: 3 }}>
+            <Stack spacing={2}>
             {Object.keys(roomData).map((idx) => {
               const roomIdx = Number(idx);
               const isActive = roomIdx === activeRoomIndex;
@@ -490,35 +563,120 @@ function App() {
                     border: isActive ? 2 : 1,
                     borderColor: isActive ? "primary.main" : "divider",
                     bgcolor: isActive ? "action.selected" : "background.paper",
-                    transition: "all 0.2s",
+                    borderRadius: 2,
+                    transition: "all 0.2s ease-in-out",
                     "&:hover": {
                       borderColor: "primary.main",
                       transform: "translateY(-2px)",
-                      boxShadow: 3,
+                      boxShadow: isActive ? 4 : 3,
+                      bgcolor: isActive ? "action.selected" : "action.hover",
                     },
                   }}
                 >
-                  <CardContent sx={{ p: 2, "&:last-child": { pb: 2 } }}>
-                    <Box display="flex" justifyContent="space-between" alignItems="center">
-                      <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                  <CardContent sx={{ p: 2.5, "&:last-child": { pb: 2.5 } }}>
+                    <Box display="flex" justifyContent="space-between" alignItems="center" mb={1.5}>
+                      <Typography variant="h6" sx={{ fontWeight: 600, color: "text.primary" }}>
                         Room {roomIdx + 1}
                       </Typography>
                       {isSelected && (
                         <CheckCircleIcon color="success" fontSize="small" />
                       )}
                     </Box>
-                    <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-                      {roomOccupancyData[roomIdx]?.numberOfAdults || 0} Adults
-                      {roomOccupancyData[roomIdx]?.childCount > 0 &&
-                        `, ${roomOccupancyData[roomIdx]?.childCount} Children`}
-                    </Typography>
+                    <Stack 
+                      spacing={1}
+                      sx={{ 
+                        mt: 1.5,
+                        py: 1,
+                        px: 1,
+                        borderRadius: 1,
+                        bgcolor: isActive ? "action.hover" : "transparent",
+                      }}
+                    >
+                      <Box 
+                        display="flex" 
+                        alignItems="baseline" 
+                        gap={0.5}
+                      >
+                        <PersonIcon 
+                          fontSize="small" 
+                          color="primary" 
+                          sx={{ 
+                            fontSize: "1rem",
+                            lineHeight: "1.25rem",
+                            display: "inline-flex",
+                            alignSelf: "baseline",
+                            mt: "0.125rem"
+                          }}
+                        />
+                        <Typography 
+                          component="span"
+                          sx={{ 
+                            fontWeight: 600,
+                            color: "text.primary",
+                            fontSize: "0.875rem",
+                            lineHeight: "1.25rem"
+                          }}
+                        >
+                          {roomOccupancyData[roomIdx]?.numberOfAdults || 0}
+                        </Typography>
+                        <Typography 
+                          component="span"
+                          sx={{ 
+                            color: "text.secondary",
+                            fontSize: "0.875rem",
+                            lineHeight: "1.25rem"
+                          }}
+                        >
+                          Adults
+                        </Typography>
+                      </Box>
+                      <Box 
+                        display="flex" 
+                        alignItems="baseline" 
+                        gap={0.5}
+                      >
+                        <ChildCareIcon 
+                          fontSize="small" 
+                          color="secondary" 
+                          sx={{ 
+                            fontSize: "1rem",
+                            lineHeight: "1.25rem",
+                            display: "inline-flex",
+                            alignSelf: "baseline",
+                            mt: "0.125rem"
+                          }}
+                        />
+                        <Typography 
+                          component="span"
+                          sx={{ 
+                            fontWeight: 600,
+                            color: "text.primary",
+                            fontSize: "0.875rem",
+                            lineHeight: "1.25rem"
+                          }}
+                        >
+                          {roomOccupancyData[roomIdx]?.childCount || 0}
+                        </Typography>
+                        <Typography 
+                          component="span"
+                          sx={{ 
+                            color: "text.secondary",
+                            fontSize: "0.875rem",
+                            lineHeight: "1.25rem"
+                          }}
+                        >
+                          Children
+                        </Typography>
+                      </Box>
+                    </Stack>
                     {selectedRoom && (
-                      <Box mt={1}>
+                      <Box mt={1.5}>
                         <Chip
                           label={`₹${selectedRoom.finalRateOfRecommendation}`}
                           size="small"
                           color="primary"
                           variant="outlined"
+                          sx={{ fontWeight: 600 }}
                         />
                       </Box>
                     )}
@@ -526,24 +684,25 @@ function App() {
                 </Card>
               );
             })}
-          </Stack>
+            </Stack>
 
-          {finalRecommendation?.finalSelectedRecommendation && (
-            <Box mt={4}>
-              <Alert severity="success" sx={{ borderRadius: 2 }}>
-                <Typography variant="subtitle2" gutterBottom>
-                  Final Recommendation
-                </Typography>
-                <Typography variant="body2">
-                  {finalRecommendation.finalSelectedRecommendation}
-                </Typography>
-              </Alert>
-            </Box>
-          )}
+            {finalRecommendation?.finalSelectedRecommendation && (
+              <Box mt={4}>
+                <Alert severity="success" sx={{ borderRadius: 2 }}>
+                  <Typography variant="subtitle2" gutterBottom>
+                    Final Recommendation
+                  </Typography>
+                  <Typography variant="body2">
+                    {finalRecommendation.finalSelectedRecommendation}
+                  </Typography>
+                </Alert>
+              </Box>
+            )}
+          </Box>
         </Paper>
 
         {/* Right Panel - Room Options */}
-        <Box sx={{ flex: 1, p: 4, overflow: "auto" }}>
+        <Box sx={{ flex: 1, p: 4, overflowY: "auto", height: "100vh", ml: "320px" }}>
           <Typography variant="h4" gutterBottom sx={{ mb: 1, fontWeight: 600 }}>
             Room {activeRoomIndex + 1} - Available Options
           </Typography>
@@ -553,14 +712,16 @@ function App() {
 
           <Stack spacing={3}>
             {Array.from(activeStandardRoomMap.entries()).map(
-              ([stdRoomId, roomList]) => (
+              ([stdRoomId, roomList]) => {
+                const stdRoomName = roomratesJson?.standardizedRooms?.[stdRoomId]?.name || `Standard Room ${stdRoomId}`;
+                return (
                 <Box key={stdRoomId}>
                   <Typography
                     variant="h6"
                     gutterBottom
                     sx={{ mb: 2, color: "primary.main", fontWeight: 600 }}
                   >
-                    Standard Room {stdRoomId}
+                    {stdRoomName}
                   </Typography>
 
                   <Grid container spacing={2}>
@@ -576,6 +737,12 @@ function App() {
                           roomItem.reccomendationId;
 
                       const isAutoSelected = !manualSelection && key === cheapestKey;
+
+                      // Get occupancy info from rate data
+                      const rateData = roomratesJson?.rates?.[roomItem.rateId];
+                      const occupancyInfo = rateData?.occupancies?.find(
+                        (occ) => occ.roomId === roomItem.roomId && occ.stdRoomId === roomItem.stdRoomId
+                      );
 
                       return (
                         <Grid item xs={12} sm={6} md={4} key={key}>
@@ -677,6 +844,109 @@ function App() {
                                   </Typography>
                                 </Box>
 
+                                <Box>
+                                  <Typography
+                                    variant="caption"
+                                    color="text.secondary"
+                                    display="block"
+                                  >
+                                    Room ID
+                                  </Typography>
+                                  <Typography variant="body2" fontWeight={600}>
+                                    {roomItem.roomId || "N/A"}
+                                  </Typography>
+                                </Box>
+
+                                {occupancyInfo && (
+                                  <Box>
+                                    <Typography
+                                      variant="caption"
+                                      color="text.secondary"
+                                      display="block"
+                                    >
+                                      Occupancy
+                                    </Typography>
+                                    <Stack spacing={0.75} mt={0.5}>
+                                      <Box 
+                                        display="flex" 
+                                        alignItems="baseline" 
+                                        gap={0.5}
+                                      >
+                                        <PersonIcon 
+                                          fontSize="small" 
+                                          color="primary" 
+                                          sx={{ 
+                                            fontSize: "1rem",
+                                            lineHeight: "1.25rem",
+                                            display: "inline-flex",
+                                            alignSelf: "baseline",
+                                            mt: "0.125rem"
+                                          }}
+                                        />
+                                        <Typography 
+                                          component="span"
+                                          sx={{ 
+                                            fontWeight: 600,
+                                            color: "text.primary",
+                                            fontSize: "0.875rem",
+                                            lineHeight: "1.25rem"
+                                          }}
+                                        >
+                                          {occupancyInfo.numOfAdults || 0}
+                                        </Typography>
+                                        <Typography 
+                                          component="span"
+                                          sx={{ 
+                                            color: "text.secondary",
+                                            fontSize: "0.875rem",
+                                            lineHeight: "1.25rem"
+                                          }}
+                                        >
+                                          Adults
+                                        </Typography>
+                                      </Box>
+                                      <Box 
+                                        display="flex" 
+                                        alignItems="baseline" 
+                                        gap={0.5}
+                                      >
+                                        <ChildCareIcon 
+                                          fontSize="small" 
+                                          color="secondary" 
+                                          sx={{ 
+                                            fontSize: "1rem",
+                                            lineHeight: "1.25rem",
+                                            display: "inline-flex",
+                                            alignSelf: "baseline",
+                                            mt: "0.125rem"
+                                          }}
+                                        />
+                                        <Typography 
+                                          component="span"
+                                          sx={{ 
+                                            fontWeight: 600,
+                                            color: "text.primary",
+                                            fontSize: "0.875rem",
+                                            lineHeight: "1.25rem"
+                                          }}
+                                        >
+                                          {occupancyInfo.numOfChildren || 0}
+                                        </Typography>
+                                        <Typography 
+                                          component="span"
+                                          sx={{ 
+                                            color: "text.secondary",
+                                            fontSize: "0.875rem",
+                                            lineHeight: "1.25rem"
+                                          }}
+                                        >
+                                          Children
+                                        </Typography>
+                                      </Box>
+                                    </Stack>
+                                  </Box>
+                                )}
+
                                 <Divider />
 
                                 <Box>
@@ -703,7 +973,8 @@ function App() {
                     })}
                   </Grid>
                 </Box>
-              ),
+                );
+              },
             )}
           </Stack>
         </Box>
