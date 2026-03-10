@@ -124,8 +124,6 @@ function App() {
 
   const [typeOfRate, setTypeOfRate] = useState("combo");
 
-  console.log('roomratesJson',{ roomratesJson, roomOccupancyData})
-
   const handleChange = (value, type, idx, childIdx) => {
     const newRoomOccupancyData = [...roomOccupancyData];
     if (type === "childAges") {
